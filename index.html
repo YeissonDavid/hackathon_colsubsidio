@@ -27,6 +27,18 @@ const $=id=>document.getElementById(id); const view=$("view"); let currentView="
             <div class="resrow"><div class="rk2">Entrega</div><div class="rv2">${d.canal}</div>
               <div class="rw2">${d.franjaLbl}</div>
             </div>
+            <div class="miniatura-container" style="margin-top:12px; background:var(--bg2); padding:10px; border-radius:8px; font-size:12px; border:1px solid rgba(255,255,255,0.05);">
+              <div style="color:var(--muted); margin-bottom:6px; font-weight:600;">Vista previa del mensaje:</div>
+              <div style="display:flex; align-items:flex-start; gap:8px;">
+                ${d.canal === 'WhatsApp' ? '<div style="background:#25D366; width:4px; border-radius:2px; align-self:stretch;"></div>' : 
+                  d.canal === 'Correo electrónico' ? '<div style="background:#EA4335; width:4px; border-radius:2px; align-self:stretch;"></div>' : 
+                  '<div style="background:var(--accent); width:4px; border-radius:2px; align-self:stretch;"></div>'}
+                <div>
+                  <b style="color:var(--text);">${d.canal === 'WhatsApp' ? 'Nuevo mensaje de ORIGEN' : d.canal === 'Correo electrónico' ? 'Asunto: Tu oferta pre-aprobada' : 'Notificación Push'}</b><br>
+                  <span style="color:var(--muted);">Hola ${d.a.nombre.split(' ')[0]}, tienes ${d.prod === 'cupo' ? 'un ' : 'un '}${PROD[d.prod].n} pre-aprobado por ${fmt(d.monto)}. ${d.canal === 'WhatsApp' ? 'Responde a este chat' : 'Haz clic aquí'} para firmarlo digitalmente sin ir a una oficina.</span>
+                </div>
+              </div>
+            </div>
           `}        </div>        <div class="reasonbox">“${d.reason}”</div>        <div class="confblock">          <div class="cl2"><span>Confianza del motor</span><span>${Math.round(d.conf*100)} %</span></div>          <div class="cbar"><i style="width:${Math.round(d.conf*100)}%"></i></div>        </div>        <div class="resactions">          ${isRoute?`            <button class="btn risk" data-act="ruta">Activar ruta de bienestar</button>            <button class="btn" data-act="asesor">Asignar a asesor</button>          `:`            <button class="btn ok" data-act="aprobar">Aprobar resolución</button>            <button class="btn" data-act="ajustar">Ajustar condiciones</button>            <button class="btn" data-act="ruta">Enviar a ruta de bienestar</button>          `}          <div class="resnote">Toda resolución queda registrada con sus variables, fuentes y base jurídica.</div>        </div>      </div>    </div>  </div>`;  $("back").onclick=()=>go("bandeja");  view.querySelectorAll("[data-act]").forEach(b=>b.onclick=()=>{    const act=b.dataset.act;    resolved[i]=act;    if(act==="aprobar")toast("Resolución aprobada",`${PROD[d.prod].n} por ${fmt(d.monto)} · notificación programada para ${d.franjaLbl}.`);    else if(act==="ajustar")toast("Condiciones en ajuste","Se abrió una revisión manual con la trazabilidad del motor adjunta.");    else if(act==="asesor")toast("Asignado a asesor","Contacto humano con fecha cierta de retorno.",true);    else toast("Ruta de bienestar activada","Sin desembolso hoy · recalificación automática en 6 meses.",true);  });  view.querySelectorAll(".dltrack i").forEach(el=>{const w=el.style.width;el.style.width="0";requestAnimationFrame(()=>requestAnimationFrame(()=>el.style.width=w));});  view.scrollIntoView({block:"start"}); } function renderLote(){
   const vd={}; const vm={}; DEC.forEach(d=>{ vd[d.verdict]=(vd[d.verdict]||0)+1; vm[d.verdict]=(vm[d.verdict]||0)+(d.monto||0); });
   const pd={};DEC.forEach(d=>{if(d.verdict!=="no_viable")pd[d.prod]=(pd[d.prod]||0)+1});
