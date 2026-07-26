@@ -1,0 +1,14 @@
+# Normalización de fin de línea.
+#
+# El equipo trabaja en Windows y el repositorio se clona también en Linux. Sin
+# esto, un `git diff` puede marcar como modificado un archivo en el que solo
+# cambiaron los CRLF, que es la clase de ruido que hizo ilegible el historial
+# de este proyecto.
+
+* text=auto eol=lf
+
+# Binarios: nunca convertir.
+*.png binary
+*.pdf binary
+*.docx binary
+*.xlsx binary

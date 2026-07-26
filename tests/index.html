@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORIGEN · Pruebas del motor</title>
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" type="image/png" href="../assets/brand/favicon.png">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+
+  <style>
+    /* Estilos propios del informe de pruebas. No se comparten con la app. */
+    body { padding: 32px 28px 60px; }
+    .wrap { max-width: 860px; margin: 0 auto; }
+    h1 { margin: 0 0 4px; font-size: 22px; font-weight: 600; }
+    .lede { margin-bottom: 24px; color: var(--text-muted); font-size: 13.5px; }
+
+    .summary {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      padding: 16px 20px; margin-bottom: 24px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    }
+    .summary__verdict { font-size: 17px; font-weight: 600; }
+    .summary__verdict--pass { color: var(--ok-bright); }
+    .summary__verdict--fail { color: var(--risk-bright); }
+    .summary__stat { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
+
+    .suite { margin-bottom: 18px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+    .suite__head {
+      padding: 11px 18px; border-bottom: 1px solid var(--border);
+      font-size: 13px; font-weight: 600; letter-spacing: .01em;
+    }
+    .suite__count { float: right; font-family: var(--font-mono); font-size: 11px; color: var(--text-faint); font-weight: 400; }
+
+    .test { display: flex; gap: 11px; padding: 8px 18px; border-bottom: 1px solid var(--border-subtle-3); font-size: 13px; }
+    .test:last-child { border-bottom: none; }
+    .test__mark { flex: 0 0 auto; width: 14px; font-family: var(--font-mono); }
+    .test--pass .test__mark { color: var(--ok); }
+    .test--fail .test__mark { color: var(--risk); }
+    .test--fail .test__name { color: var(--risk-bright); }
+    .test__error {
+      margin-top: 5px; font-family: var(--font-mono); font-size: 11.5px;
+      line-height: 1.55; color: var(--warn-bright);
+    }
+    .note { margin-top: 26px; font-size: 12px; line-height: 1.7; color: var(--text-faint); }
+    .note code { color: var(--text-muted); }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>ORIGEN · Pruebas del motor</h1>
+    <p class="lede">
+      Se ejecutan al abrir este archivo. Sin dependencias, sin instalación y sin
+      servidor — igual que la aplicación. También se pueden correr en consola con
+      <code>node tests/run-node.js</code>.
+    </p>
+
+    <div id="summary" class="summary"></div>
+    <div id="results"></div>
+
+    <p class="note">
+      Estas pruebas cubren el motor y sus reglas: determinismo, política de
+      capacidad, scorer, proyección, enmascaramiento de PII y formato. No cubren
+      el renderizado — para eso hace falta un entorno de pruebas de DOM, que
+      añadiría dependencias. Ver <code>docs/MEJORAS.md §5</code>.
+    </p>
+  </div>
+
+  <!-- Motor bajo prueba: mismo orden de dependencias que en index.html -->
+  <script src="../assets/js/core/namespace.js"></script>
+  <script src="../assets/js/core/config.js"></script>
+  <script src="../assets/js/core/math.js"></script>
+  <script src="../assets/js/core/random.js"></script>
+  <script src="../assets/js/core/format.js"></script>
+  <script src="../assets/js/core/catalog.js"></script>
+  <script src="../assets/js/domain/lifestage.js"></script>
+  <script src="../assets/js/domain/engagement.js"></script>
+  <script src="../assets/js/domain/population.js"></script>
+  <script src="../assets/js/domain/scoring.js"></script>
+  <script src="../assets/js/domain/capacity.js"></script>
+  <script src="../assets/js/domain/projection.js"></script>
+  <script src="../assets/js/domain/narrative.js"></script>
+  <script src="../assets/js/domain/decision.js"></script>
+  <script src="../assets/js/domain/dataset.js"></script>
+  <script src="../assets/js/ui/privacy.js"></script>
+
+  <!-- Ejecutor y especificaciones -->
+  <script src="runner.js"></script>
+  <script src="specs/determinism.spec.js"></script>
+  <script src="specs/scoring.spec.js"></script>
+  <script src="specs/capacity.spec.js"></script>
+  <script src="specs/projection.spec.js"></script>
+  <script src="specs/privacy.spec.js"></script>
+  <script src="specs/format.spec.js"></script>
+
+  <script>
+    (function () {
+      "use strict";
+
+      function escapeHtml(value) {
+        return ORIGEN.core.format.escapeHtml(value);
+      }
+
+      const report = TestRunner.run();
+      const total = report.passed + report.failed;
+      const ok = report.failed === 0;
+
+      document.getElementById("summary").innerHTML =
+        '<span class="summary__verdict summary__verdict--' + (ok ? "pass" : "fail") + '">' +
+        (ok ? "✓ Todo en verde" : "✕ " + report.failed + " prueba(s) fallando") + "</span>" +
+        '<span class="summary__stat">' + report.passed + " de " + total + " correctas</span>" +
+        '<span class="summary__stat">' + report.results.length + " suites</span>";
+
+      document.getElementById("results").innerHTML = report.results
+        .map(function (suite) {
+          const failed = suite.tests.filter(function (t) { return !t.ok; }).length;
+
+          const rows = suite.tests
+            .map(function (test) {
+              return (
+                '<div class="test test--' + (test.ok ? "pass" : "fail") + '">' +
+                '<span class="test__mark">' + (test.ok ? "✓" : "✕") + "</span>" +
+                '<span><span class="test__name">' + escapeHtml(test.name) + "</span>" +
+                (test.ok ? "" : '<div class="test__error">' + escapeHtml(test.error) + "</div>") +
+                "</span></div>"
+              );
+            })
+            .join("");
+
+          return (
+            '<div class="suite"><div class="suite__head">' + escapeHtml(suite.name) +
+            '<span class="suite__count">' +
+            (failed ? failed + " fallando · " : "") + suite.tests.length + " pruebas" +
+            "</span></div>" + rows + "</div>"
+          );
+        })
+        .join("");
+
+      document.title = (ok ? "✓" : "✕ " + report.failed + " ·") + " ORIGEN · Pruebas del motor";
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,713 @@
+/* ==========================================================================
+   ORIGEN · Capa 5 — Vistas
+   --------------------------------------------------------------------------
+   Estilos ligados a una pantalla concreta: la ficha del afiliado (capacidad,
+   deliberación, proyección, ventana de contacto, resolución) y el lote.
+   Se separan de components.css porque no son reutilizables: describen la
+   anatomía de una vista específica.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Ficha del afiliado — rejilla principal
+   -------------------------------------------------------------------------- */
+
+.fichagrid {
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  align-items: start;
+  gap: 18px;
+}
+
+@media (max-width: 1150px) {
+  .fichagrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Cabecera del afiliado
+   -------------------------------------------------------------------------- */
+
+.subject {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 18px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.subject__avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--border-strong);
+  border-radius: 11px;
+  background: var(--surface-3);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.subject__name {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.subject__meta {
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-faint);
+}
+
+.subject__stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-left: auto;
+}
+
+.sstat__label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.sstat__value {
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.sstat__value--lifestage {
+  font-size: 13.5px;
+  color: var(--lifestage);
+}
+
+/* --------------------------------------------------------------------------
+   Capacidad de pago — barras de asignación del ingreso
+   -------------------------------------------------------------------------- */
+
+.alloc {
+  margin-top: 4px;
+}
+
+.allocrow {
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 9px;
+}
+
+.allocrow__label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: right;
+  color: var(--text-faint);
+}
+
+.allocrow__label--active {
+  color: var(--accent);
+}
+
+.allocbar {
+  display: flex;
+  overflow: hidden;
+  height: 26px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+}
+
+.allocbar__seg {
+  display: block;
+  height: 100%;
+}
+
+/* Obligaciones que continúan: trama diagonal = compromiso ya existente */
+.allocbar__seg--obligation {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--alloc-obligation) 0,
+    var(--alloc-obligation) 5px,
+    var(--alloc-obligation-2) 5px,
+    var(--alloc-obligation-2) 10px
+  );
+}
+
+/* Cuota de la resolución: color de acento = lo que ORIGEN propone añadir */
+.allocbar__seg--resolution {
+  background: var(--accent);
+}
+
+/* Ingreso disponible */
+.allocbar__seg--free {
+  background: var(--surface-3);
+}
+
+/* Deuda externa costosa: trama roja = lo que la resolución va a sustituir */
+.allocbar__seg--external {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--alloc-external) 0,
+    var(--alloc-external) 5px,
+    var(--alloc-external-2) 5px,
+    var(--alloc-external-2) 10px
+  );
+}
+
+.alloclegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 11px;
+}
+
+.alegend {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.alegend__swatch {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.alegend strong {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Nota de liberación de flujo (compra de cartera) */
+.liber {
+  margin-top: 12px;
+  padding: 10px 13px;
+  border-left: 2px solid var(--ok);
+  border-radius: 0 6px 6px 0;
+  background: rgba(46, 158, 107, 0.07);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.liber strong {
+  color: var(--text);
+}
+
+/* Verificación de política */
+.policy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.pcheck {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.pcheck__mark {
+  font-family: var(--font-mono);
+  color: var(--ok);
+}
+
+.pcheck__mark--fail {
+  color: var(--risk);
+}
+
+.pcheck strong {
+  color: var(--text);
+}
+
+/* --------------------------------------------------------------------------
+   Deliberación del portafolio
+   -------------------------------------------------------------------------- */
+
+.delib {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.dlrow {
+  display: grid;
+  grid-template-columns: 168px 1fr 40px;
+  align-items: center;
+  gap: 12px;
+}
+
+.dlrow__name {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.dlrow__score {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: right;
+  color: var(--text-muted);
+}
+
+/* Producto ganador de la deliberación */
+.dlrow--winner .dlrow__name {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.dlrow--winner .dlrow__score {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.dltrack {
+  display: flex;
+  overflow: hidden;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--surface-2);
+}
+
+.dltrack__seg {
+  display: block;
+  width: 0;
+  height: 100%;
+  transition: width 0.7s var(--ease-out);
+}
+
+/* Composición del puntaje del ganador */
+.contrib {
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid var(--border);
+}
+
+.contrib__head {
+  margin-bottom: 9px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.crow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  font-size: 12.5px;
+}
+
+.crow__swatch {
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+}
+
+.crow__label {
+  color: var(--text-muted);
+}
+
+.crow__value {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  color: var(--text);
+}
+
+.crow--total {
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+  font-weight: 600;
+}
+
+.crow--total .crow__value {
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   Proyección de bienestar — gráfico SVG
+   --------------------------------------------------------------------------
+   Los colores de las series se aplican por clase CSS, NO con var() dentro de
+   atributos de presentación SVG: `stroke="var(--x)"` no es fiable entre
+   navegadores. Así el color vive en la hoja de estilo y el SVG solo describe
+   geometría y semántica.
+   -------------------------------------------------------------------------- */
+
+.chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.chart .grid line {
+  stroke: rgba(38, 49, 63, 0.85);
+  stroke-width: 1;
+}
+
+.chart .axis text {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  fill: var(--text-faint);
+}
+
+.chart .axis-caption {
+  font-size: 9px;
+}
+
+.chart .serie {
+  fill: none;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Escenario no ganador: trazo discontinuo y atenuado */
+.chart .serie--muted {
+  stroke-dasharray: 5 4;
+  stroke-width: 1.8;
+  opacity: 0.62;
+}
+
+.chart .endlbl {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.chart .todayline {
+  stroke: var(--border-strong);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+/* Los tres escenarios. El nombre del escenario es la clase: el JS no conoce
+   colores, solo el identificador del escenario. */
+.scenario--now   { stroke: var(--accent); fill: var(--accent); }
+.scenario--wait  { stroke: var(--info);   fill: var(--info); }
+.scenario--route { stroke: var(--risk);   fill: var(--risk); }
+
+/* Los puntos y etiquetas de fin de serie solo rellenan, no trazan */
+.chart .endpoint,
+.chart .endlbl {
+  stroke: none;
+}
+
+.chart .endpoint--muted {
+  opacity: 0.7;
+}
+
+.chart .endlbl--muted {
+  opacity: 0.75;
+}
+
+.chartlegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.clg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+.clg__line {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 2.5px;
+  border-radius: 2px;
+}
+
+.clg__line--now   { background: var(--accent); }
+.clg__line--wait  { background: var(--info); }
+.clg__line--route { background: var(--risk); }
+
+.clg__label {
+  color: var(--text-muted);
+}
+
+.clg__value {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+.clg--winner .clg__label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.clg--winner .clg__value {
+  color: var(--accent);
+}
+
+.clg:not(.clg--winner) .clg__line {
+  opacity: 0.6;
+}
+
+/* Lectura en lenguaje natural del gráfico */
+.readout {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-left: 2px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  background: var(--surface-2);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.readout strong {
+  color: var(--text);
+}
+
+/* --------------------------------------------------------------------------
+   Ventana de contacto — mapa de calor 7 días × 18 horas
+   -------------------------------------------------------------------------- */
+
+.heat {
+  display: grid;
+  grid-template-columns: 34px repeat(18, 1fr);
+  align-items: center;
+  gap: 2px;
+}
+
+.heat__hour {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  text-align: center;
+  color: var(--text-faint);
+}
+
+.heat__day {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-faint);
+}
+
+.heat__cell {
+  aspect-ratio: 1 / 1;
+  min-height: 13px;
+  border-radius: 2px;
+  background: var(--surface-2);
+}
+
+.heat__cell--peak {
+  outline: 1.5px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.heatfoot {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 12px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.heatfoot strong {
+  color: var(--accent);
+}
+
+.heatscale {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.heatscale__step {
+  width: 16px;
+  height: 9px;
+  border-radius: 2px;
+}
+
+.heatscale span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-faint);
+}
+
+/* --------------------------------------------------------------------------
+   Panel de resolución
+   -------------------------------------------------------------------------- */
+
+.rail2 {
+  position: sticky;
+  top: 0;
+}
+
+.resolution {
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--accent-dim);
+  border-radius: var(--radius-lg);
+}
+
+.res__head {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--accent-soft), transparent);
+}
+
+.res__title {
+  font-family: var(--font-doc);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.res__ref {
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+}
+
+.res__body {
+  padding: 16px 18px;
+}
+
+.resrow {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-subtle-2);
+}
+
+.resrow:last-of-type {
+  border-bottom: none;
+}
+
+.resrow__key {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.resrow__value {
+  margin-top: 3px;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.resrow__note {
+  margin-top: 2px;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+/* Razón en lenguaje natural, la frase que verá el afiliado */
+.reasonbox {
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.confblock {
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+}
+
+.confblock__label {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.confblock__track {
+  overflow: hidden;
+  height: 6px;
+  margin-top: 8px;
+  border-radius: 4px;
+  background: var(--surface-3);
+}
+
+.confblock__fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--info), var(--info-bright));
+}
+
+.resactions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.resactions .btn {
+  justify-content: center;
+  width: 100%;
+}
+
+.resnote {
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--text-faint);
+}
+
+/* --------------------------------------------------------------------------
+   Procesamiento por lote
+   -------------------------------------------------------------------------- */
+
+.batchgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 1000px) {
+  .batchgrid {
+    grid-template-columns: 1fr;
+  }
+}

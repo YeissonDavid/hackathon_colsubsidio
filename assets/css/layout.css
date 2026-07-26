@@ -1,0 +1,330 @@
+/* ==========================================================================
+   ORIGEN · Capa 3 — Layout
+   --------------------------------------------------------------------------
+   Estructura persistente de la aplicación: el armazón de dos columnas, la
+   barra lateral de navegación, la barra superior y el contenedor de vistas.
+   Todo lo de aquí existe una sola vez en el DOM y no se vuelve a renderizar.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Armazón
+   -------------------------------------------------------------------------- */
+
+.shell {
+  display: grid;
+  grid-template-columns: var(--rail-width) 1fr;
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;   /* permite que las tablas anchas hagan scroll en vez de desbordar */
+  min-height: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Barra lateral
+   -------------------------------------------------------------------------- */
+
+.rail {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+}
+
+.brandbox {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 18px 18px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brandbox__logo {
+  height: 26px;
+  width: auto;
+  border-radius: 4px;
+}
+
+.brandbox__title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.brandbox__sub {
+  margin-top: 1px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+}
+
+.navsec {
+  padding: 16px 12px 6px;
+}
+
+.navsec__label {
+  padding: 0 8px 8px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.navitem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: var(--radius);
+  text-align: left;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+
+.navitem:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.navitem[aria-current="page"] {
+  background: var(--surface-3);
+  color: var(--text);
+  font-weight: 500;
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+.navitem__count {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.navitem[aria-current="page"] .navitem__count {
+  color: var(--accent);
+}
+
+.railfoot {
+  margin-top: auto;
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.7;
+  color: var(--text-faint);
+}
+
+.railfoot__dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--ok);
+}
+
+/* --------------------------------------------------------------------------
+   Barra superior
+   -------------------------------------------------------------------------- */
+
+.topbar {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 14px;
+  height: 56px;
+  padding: 0 20px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.finder {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 300px;
+  padding: 7px 11px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.finder:focus-within {
+  border-color: var(--border-strong);
+}
+
+.finder__icon {
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+.finder__input {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.finder__input::placeholder {
+  font-family: var(--font-ui);
+  letter-spacing: 0;
+  color: var(--text-faint);
+}
+
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.envtag {
+  padding: 3px 8px;
+  border: 1px solid var(--accent-dim);
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.who {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.who__avatar {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface-3);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.who__name {
+  font-size: 12.5px;
+  line-height: 1.25;
+}
+
+.who__role {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-faint);
+}
+
+/* Interruptor de enmascaramiento de PII */
+.privacy-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  color: var(--accent);
+}
+
+.privacy-toggle input {
+  accent-color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   Contenedor de vistas
+   -------------------------------------------------------------------------- */
+
+.content {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.pad {
+  max-width: 1500px;
+  padding: 22px 26px 40px;
+}
+
+/* Encabezado de página, común a las cuatro vistas */
+.phead {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.phead h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.phead__sub {
+  margin-top: 3px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.phead__actions {
+  display: flex;
+  gap: 9px;
+  margin-left: auto;
+}
+
+/* Pie de la aplicación: vive en el armazón, no dentro de una vista, para que
+   aparezca en las cuatro pantallas y no solo en la bandeja. */
+.appfoot {
+  padding: 24px;
+  margin-top: 30px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  line-height: 1.7;
+  text-align: center;
+  color: var(--text-faint);
+}
+
+.appfoot strong {
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Adaptación a pantallas estrechas
+   --------------------------------------------------------------------------
+   Por debajo de 900px la barra lateral se oculta: es un panel de escritorio
+   para analistas, y la navegación queda accesible por el buscador. Se
+   documenta como limitación conocida en docs/MEJORAS.md.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .rail {
+    display: none;
+  }
+
+  .pad {
+    padding: 16px 14px 30px;
+  }
+}

@@ -14,7 +14,7 @@
 - **Momento:** Cuando se necesita pre-aprobar bases masivas de afiliados (Procesamiento por lote) o cuando un analista atiende un caso complejo (Bandeja de decisión individual) y requiere una recomendación explicable en menos de 1 minuto sin hacer trámites engorrosos.
 
 ## 4. Flujo en 5 pasos
-1. **Ingreso:** El analista busca una cédula o carga un archivo CSV (Lote) en el panel `index.html`.
+1. **Ingreso:** El analista busca una cédula o carga un archivo CSV (Lote) en el panel `index.html` (interfaz y motor documentados en `docs/ARCHITECTURE.md`).
 2. **Enriquecimiento:** El motor procesa variables exógenas (RUES, uso de la red Colsubsidio, momento de vida).
 3. **Deliberación de Portafolio:** El motor evalúa los 7 productos de Colsubsidio aplicando reglas estrictas de capacidad y vinculación.
 4. **Proyección (Bienestar):** Se simula el bienestar financiero a 12 meses. Si la capacidad está excedida, el sistema bloquea el desembolso y activa la "Ruta de Bienestar" (recalificación a 6 meses).
@@ -24,6 +24,8 @@
 1. **Zero-Dependency (Ejecución):** El sistema debe arrancar haciendo doble clic en `index.html` sin necesidad de dependencias (Node.js, Docker, bases de datos), ejecutándose por completo en el navegador.
 2. **Determinismo:** Para el mismo perfil con las mismas variables de entrada, el sistema **siempre** debe arrojar exactamente el mismo puntaje, producto sugerido y proyección a 12 meses.
 3. **Explicabilidad Visual:** La resolución debe mostrar gráficamente por qué un crédito fue preferido sobre otro (barras de contribución al score) y el cálculo de la capacidad de pago antes y después de la resolución.
+
+**Cómo se verifican:** los tres criterios tienen prueba automática ejecutable sin instalar nada — doble clic en `tests/index.html`, o `node tests/run-node.js`. La suite cubre el determinismo de la población, la suma exacta de los aportes al puntaje (explicabilidad auditable) y el cumplimiento de los topes de política en las 220 resoluciones.
 
 ## 6. Datos que toca
 - Datos transaccionales del ecosistema Colsubsidio (Boletería, turismo, salud).

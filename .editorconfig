@@ -1,0 +1,24 @@
+# Estilo de archivo común a cualquier editor.
+# https://editorconfig.org — VS Code, JetBrains, Sublime y Vim lo respetan.
+#
+# Existe para que el proyecto no vuelva a acumular diferencias de formato que
+# ensucien los diffs: sin esto, dos personas con configuraciones distintas
+# reescriben el archivo entero al guardar.
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+[*.md]
+# En Markdown, dos espacios al final son un salto de línea con significado.
+trim_trailing_whitespace = false
+
+[*.py]
+indent_size = 4

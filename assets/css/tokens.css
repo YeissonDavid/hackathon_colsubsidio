@@ -1,0 +1,144 @@
+/* ==========================================================================
+   ORIGEN · Capa 1 — Design tokens
+   --------------------------------------------------------------------------
+   Única fuente de verdad del color, la tipografía y las medidas del sistema.
+   Ninguna otra hoja declara un color literal: todas consumen estas variables.
+
+   Se organiza en dos niveles, deliberadamente:
+
+     1. PRIMITIVAS DE MARCA  → los tres colores del manual de Colsubsidio,
+        tal cual, sin tocar. Son la referencia documental.
+     2. TOKENS SEMÁNTICOS    → lo que la interfaz realmente usa, nombrado por
+        su ROL (superficie, acento, riesgo…) y no por su color.
+
+   Por qué dos niveles: la UI es oscura y los colores de marca están
+   calibrados para impresión y fondo blanco. Aplicarlos crudos sobre un fondo
+   #0D1218 rompe la accesibilidad. Los contrastes están medidos (WCAG 2.1,
+   relación mínima 4.5:1 para texto normal):
+
+     · Azul oficial   #0067b1 sobre --bg  =  3.20:1  ✕ NO cumple AA
+     · Azul aclarado  #5B87C7 sobre --bg  =  5.14:1  ✓ cumple AA
+     · Amarillo ofic. #ffd000 sobre --bg  = 12.78:1  ✓ cumple AAA
+     · Ámbar actual   #C08A2E sobre --bg  =  6.19:1  ✓ cumple AA
+
+   Conclusión honesta: el azul DEBE aclararse por accesibilidad; el amarillo
+   NO necesita oscurecerse — el ámbar es una decisión estética, no técnica.
+   Ver `[data-brand="oficial"]` al final del archivo para alternar.
+   ========================================================================== */
+
+:root {
+  /* ---- 1. Primitivas de marca (manual Colsubsidio) --------------------- */
+  /* Pantone 109 C · CMYK 0/18/100/0 · RGB 255/208/0 */
+  --brand-amarillo: #ffd000;
+  /* Componentes sueltos del amarillo, para construir rgba() con alfa variable
+     desde JavaScript (mapa de calor de conexión). */
+  --brand-amarillo-rgb: 255, 208, 0;
+  /* Pantone 2196 C · CMYK 90/55/0/0 · RGB 0/103/177 */
+  --brand-azul: #0067b1;
+  /* Pantone Cool Gray 11 C · CMYK 0/0/0/80 · RGB 87/87/86 */
+  --brand-grafito: #575756;
+
+  /* ---- 2. Tokens semánticos ------------------------------------------- */
+
+  /* Superficies, de más profunda a más elevada */
+  --bg: #0d1218;
+  --surface: #151c26;
+  --surface-2: #1b2430;
+  --surface-3: #212c3a;
+
+  /* Bordes */
+  --border: #26313f;
+  --border-strong: #33404f;
+  /* Bordes internos de tabla: el mismo borde al 60 % */
+  --border-subtle: rgba(38, 49, 63, 0.6);
+  --border-subtle-2: rgba(38, 49, 63, 0.55);
+  --border-subtle-3: rgba(38, 49, 63, 0.5);
+
+  /* Texto, por jerarquía */
+  --text: #e4e9f0;          /* 15.41:1 sobre --bg */
+  --text-muted: #8895a8;    /*  6.19:1 sobre --bg */
+  --text-faint: #5e6b7e;    /*  3.47:1 — solo para etiquetas ≥ 11px en mayúsculas */
+
+  /* Acento cálido — familia del amarillo de marca, oscurecido para el tema oscuro */
+  --accent: #c08a2e;
+  --accent-dim: #6e4f1b;
+  --accent-soft: rgba(192, 138, 46, 0.1);
+  --accent-hover: #d19a38;
+  --accent-ink: #1a1206;    /* texto sobre fondo de acento — 6.10:1 */
+
+  /* Acento frío — azul de marca aclarado hasta cumplir AA sobre superficie oscura */
+  --info: #5b87c7;
+  --info-bright: #84a8dc;
+
+  /* Estado */
+  --ok: #2e9e6b;
+  --ok-bright: #5fcb98;
+  --warn: #c9922e;
+  --warn-bright: #ddb05a;
+  --risk: #c4564f;
+  --risk-bright: #e08a84;
+
+  /* Momento de vida (dimensión propia del dominio, no es un estado) */
+  --lifestage: #8b7fd4;
+
+  /* ---- Paleta categórica de señales ---------------------------------- */
+  /* Colores del gráfico de contribución al puntaje. Son datos-visualización:
+     categóricos, no secuenciales, y deben distinguirse entre sí sobre
+     --surface-2. El motor (core/catalog.js) referencia estos tokens por
+     nombre, nunca hexadecimales, para que el color viva solo aquí. */
+  --sig-red: #c4564f;
+  --sig-red-soft: #d06b63;
+  --sig-green: #3e9e8f;
+  --sig-green-2: #2e9e6b;
+  --sig-green-3: #4e9e86;
+  --sig-green-4: #3e8e7e;
+  --sig-slate: #6e7c93;
+  --sig-slate-2: #7e8ca3;
+  --sig-violet: #8b7fd4;
+  --sig-violet-2: #a093e0;
+  --sig-violet-3: #7a6dc9;
+  --sig-pink: #c77fa8;
+  --sig-pink-2: #d48fb4;
+  --sig-sand: #d2a65b;
+
+  /* Rellenos de la barra de asignación de ingreso */
+  --alloc-obligation: #3c4a5e;
+  --alloc-obligation-2: #44526a;
+  --alloc-external: #a8453f;
+  --alloc-external-2: #c4564f;
+
+  /* ---- Tipografía ----------------------------------------------------- */
+  --font-ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", monospace;
+  --font-doc: "IBM Plex Serif", Georgia, serif;
+
+  /* ---- Medidas -------------------------------------------------------- */
+  --rail-width: 236px;
+  --radius-sm: 5px;
+  --radius: 7px;
+  --radius-lg: 10px;
+
+  /* ---- Movimiento ----------------------------------------------------- */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-fast: 0.14s;
+  --dur: 0.28s;
+}
+
+/* ==========================================================================
+   Variante de marca estricta
+   --------------------------------------------------------------------------
+   Poner data-brand="oficial" en <html> sustituye el acento cálido por el
+   amarillo exacto del manual. El azul NO se sustituye por el oficial: 3.20:1
+   incumpliría WCAG AA sobre fondo oscuro; se mantiene la versión aclarada,
+   que sigue siendo Pantone 2196 C en tono, no en luminancia.
+
+   Un solo atributo permite mostrar ambas lecturas al jurado sin tocar código.
+   ========================================================================== */
+
+:root[data-brand="oficial"] {
+  --accent: var(--brand-amarillo);
+  --accent-dim: #8a7100;
+  --accent-soft: rgba(255, 208, 0, 0.1);
+  --accent-hover: #ffdb33;
+  --accent-ink: #1a1206; /* 12.60:1 sobre el amarillo oficial */
+}

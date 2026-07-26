@@ -1,0 +1,624 @@
+/* ==========================================================================
+   ORIGEN · Capa 4 — Componentes
+   --------------------------------------------------------------------------
+   Piezas reutilizables e independientes de la vista: botones, tarjetas, KPI,
+   tablas, píldoras de estado, avisos. Cada bloque es autónomo — se puede
+   mover a otra pantalla sin arrastrar dependencias.
+
+   Convención de nombres: bloque, bloque__elemento, bloque--modificador.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Botón
+   -------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background var(--dur-fast), border-color var(--dur-fast);
+}
+
+.btn:hover {
+  background: var(--surface-3);
+  border-color: var(--text-faint);
+}
+
+.btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+.btn--primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.btn--ok {
+  background: rgba(46, 158, 107, 0.12);
+  border-color: rgba(46, 158, 107, 0.45);
+  color: var(--ok-bright);
+}
+
+.btn--ok:hover {
+  background: rgba(46, 158, 107, 0.2);
+}
+
+.btn--risk {
+  background: rgba(196, 86, 79, 0.1);
+  border-color: rgba(196, 86, 79, 0.4);
+  color: var(--risk-bright);
+}
+
+.btn--risk:hover {
+  background: rgba(196, 86, 79, 0.18);
+}
+
+.btn--sm {
+  padding: 6px 11px;
+  font-size: 12px;
+}
+
+/* Enlace de retorno a la bandeja */
+.backlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 14px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.backlink:hover {
+  color: var(--text);
+}
+
+/* --------------------------------------------------------------------------
+   KPI
+   -------------------------------------------------------------------------- */
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.kpi {
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+
+.kpi__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.kpi__value {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.kpi__note {
+  margin-top: 2px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.kpi--accent .kpi__value { color: var(--accent); }
+.kpi--risk   .kpi__value { color: var(--risk); }
+.kpi--ok     .kpi__value { color: var(--ok); }
+
+/* --------------------------------------------------------------------------
+   Filtros
+   -------------------------------------------------------------------------- */
+
+.filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+.fchip {
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 12.5px;
+  transition: background var(--dur-fast), border-color var(--dur-fast), color var(--dur-fast);
+}
+
+.fchip:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.fchip[aria-pressed="true"] {
+  background: var(--surface-3);
+  border-color: var(--text-faint);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.fchip__count {
+  margin-left: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.fchip[aria-pressed="true"] .fchip__count {
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   Tabla
+   -------------------------------------------------------------------------- */
+
+.tablewrap {
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+thead th {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+  text-align: left;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+tbody td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Alineación a la derecha para columnas numéricas */
+.is-right {
+  text-align: right;
+}
+
+/* Solo las filas navegables reciben afordancia de clic */
+.tablewrap--interactive tbody tr {
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.tablewrap--interactive tbody tr:hover {
+  background: var(--surface-2);
+}
+
+.cell-name {
+  font-weight: 500;
+}
+
+.cell-sub {
+  margin-top: 1px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.tfoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+/* --------------------------------------------------------------------------
+   Píldora de veredicto
+   -------------------------------------------------------------------------- */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border: 1px solid;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.pill--viable {
+  color: var(--ok-bright);
+  border-color: rgba(46, 158, 107, 0.4);
+  background: rgba(46, 158, 107, 0.09);
+}
+
+.pill--conditions {
+  color: var(--warn-bright);
+  border-color: rgba(201, 146, 46, 0.4);
+  background: rgba(201, 146, 46, 0.09);
+}
+
+.pill--timing {
+  color: var(--info-bright);
+  border-color: rgba(91, 135, 199, 0.4);
+  background: rgba(91, 135, 199, 0.09);
+}
+
+.pill--wellbeing {
+  color: var(--risk-bright);
+  border-color: rgba(196, 86, 79, 0.4);
+  background: rgba(196, 86, 79, 0.09);
+}
+
+.pill--lg {
+  padding: 5px 11px;
+  font-size: 12px;
+}
+
+/* Etiqueta de momento de vida */
+.tag-lifestage {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--lifestage);
+}
+
+/* --------------------------------------------------------------------------
+   Indicador de confianza
+   -------------------------------------------------------------------------- */
+
+.conf {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.conf__track {
+  overflow: hidden;
+  width: 44px;
+  height: 4px;
+  border-radius: 3px;
+  background: var(--surface-3);
+}
+
+.conf__fill {
+  display: block;
+  height: 100%;
+  background: var(--info);
+}
+
+/* --------------------------------------------------------------------------
+   Tarjeta
+   -------------------------------------------------------------------------- */
+
+.card {
+  margin-bottom: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.card__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.card__head h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.card__hint {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.card__body {
+  padding: 18px;
+}
+
+.card__body--flush {
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Fila de definición (clave / valor / nota)
+   -------------------------------------------------------------------------- */
+
+.drow {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 14px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border-subtle-2);
+  font-size: 13px;
+}
+
+.drow:last-child {
+  border-bottom: none;
+}
+
+.drow__key {
+  padding-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.drow__value {
+  font-weight: 500;
+}
+
+.drow__note {
+  margin-top: 2px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Tabla de fuentes y base jurídica
+   -------------------------------------------------------------------------- */
+
+.srctable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.srctable th {
+  padding: 0 10px 8px 0;
+  border-bottom: 1px solid var(--border);
+  background: none;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.srctable td {
+  padding: 9px 10px 9px 0;
+  border-bottom: 1px solid var(--border-subtle-3);
+  vertical-align: top;
+}
+
+.srctable tr:last-child td {
+  border-bottom: none;
+}
+
+.srctable__value {
+  font-weight: 500;
+}
+
+.srctable__legal {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Valor que exige atención del analista (deuda externa detectada) */
+.srctable__value--flag {
+  font-weight: 600;
+  color: var(--risk);
+}
+
+/* --------------------------------------------------------------------------
+   Aviso emergente
+   --------------------------------------------------------------------------
+   Lleva role="status" y aria-live="polite" en el markup para que un lector
+   de pantalla anuncie la resolución sin robar el foco.
+   -------------------------------------------------------------------------- */
+
+.toast {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 60;
+  max-width: 340px;
+  padding: 13px 17px;
+  border: 1px solid var(--border-strong);
+  border-left: 3px solid var(--ok);
+  border-radius: 8px;
+  background: var(--surface-3);
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.7);
+  font-size: 13px;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.toast--risk {
+  border-left-color: var(--risk);
+}
+
+.toast__title {
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+.toast__detail {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Barra de progreso de lote
+   -------------------------------------------------------------------------- */
+
+.runline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding: 14px 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+
+.runbar {
+  overflow: hidden;
+  flex: 1;
+  min-width: 180px;
+  height: 6px;
+  border-radius: 4px;
+  background: var(--surface-3);
+}
+
+.runbar__fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s linear;
+}
+
+.runstat {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Fila de distribución (histograma horizontal)
+   -------------------------------------------------------------------------- */
+
+.distrow {
+  display: grid;
+  grid-template-columns: 150px 1fr 62px;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 0;
+}
+
+.distrow__label {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.distrow__track {
+  overflow: hidden;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--surface-2);
+}
+
+.distrow__fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s var(--ease-out);
+}
+
+.distrow__value {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: right;
+  color: var(--text);
+}
+
+.distrow__pct {
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+/* --------------------------------------------------------------------------
+   Estado vacío
+   -------------------------------------------------------------------------- */
+
+.empty {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--text-faint);
+}
+
+.empty__head {
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Botón flotante de contacto
+   -------------------------------------------------------------------------- */
+
+.floating-contact {
+  position: fixed;
+  bottom: 22px;
+  left: 22px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 24px;
+  background: #25d366; /* verde de marca de WhatsApp — externo al sistema */
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s;
+}
+
+.floating-contact:hover {
+  transform: scale(1.05);
+}

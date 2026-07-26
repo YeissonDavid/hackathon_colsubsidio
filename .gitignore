@@ -1,0 +1,40 @@
+# === Carpeta privada de trabajo (NO se sube al repo) ===
+private/
+/private/**
+
+# === Datos sensibles / bases reales ===
+*.csv
+*.parquet
+*.xlsx
+data/
+datos/
+raw/
+
+# === Secretos ===
+.env
+.env.*
+*.key
+*.pem
+secrets.json
+credentials.json
+
+# === Python ===
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# === Node ===
+node_modules/
+dist/
+.next/
+
+# === Sistema operativo / editores ===
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+*.swp
+~$*

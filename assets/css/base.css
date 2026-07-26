@@ -1,0 +1,123 @@
+/* ==========================================================================
+   ORIGEN · Capa 2 — Base
+   --------------------------------------------------------------------------
+   Reset mínimo, tipografía del documento y comportamientos globales.
+   Solo selectores de elemento y utilidades de una sola responsabilidad.
+   No contiene componentes ni layout.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Los controles heredan la tipografía en vez de la del sistema operativo */
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* --------------------------------------------------------------------------
+   Utilidades
+   -------------------------------------------------------------------------- */
+
+/* Cifras alineadas en columna: obligatorio en montos, cuotas y porcentajes */
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Texto solo para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Foco visible
+   --------------------------------------------------------------------------
+   Un único anillo de foco para todo lo interactivo. Se usa :focus-visible
+   para no mostrarlo en clics de ratón pero sí en navegación por teclado.
+   -------------------------------------------------------------------------- */
+
+:where(button, a, input, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--info);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Barra de desplazamiento (WebKit / Blink)
+   -------------------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border: 2px solid var(--bg);
+  border-radius: 5px;
+}
+
+/* --------------------------------------------------------------------------
+   Preferencia de movimiento reducido
+   --------------------------------------------------------------------------
+   Las animaciones de este panel son decorativas (barras que crecen, toasts).
+   Ninguna comunica información por sí sola, así que se pueden desactivar por
+   completo sin pérdida funcional.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
