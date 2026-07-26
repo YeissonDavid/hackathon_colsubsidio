@@ -1,36 +1,78 @@
-# ORIGEN - Crédito Hiperpersonalizado para Colsubsidio
+# ORIGEN · Copiloto de Deliberación Financiera
 
-ORIGEN es un **Motor Zero-Dependency** diseñado para empoderar a los analistas de crédito de Colsubsidio, convirtiendo el conocimiento del afiliado en decisiones financieras transparentes, explicables y centradas en la realidad de cada persona.
+**Reto Crédito Hiperpersonalizado · Hackathon Colsubsidio y 30X · Julio de 2026**
 
-## 🚀 Cómo ejecutar la solución (Zero-Dependency)
+> ORIGEN no pregunta solo cuánto crédito se puede colocar. Ayuda a decidir qué alternativa financiera mejora la vida del afiliado, en qué momento y por qué.
 
-Cumpliendo con el criterio de "ejecutar la solución en menos de 5 minutos", esta solución **no requiere instalaciones complejas**. 
-No necesitas Node.js, Python, bases de datos ni conexión a APIs externas para la demostración.
+ORIGEN es una estación de decisión para analistas de crédito. Enriquece perfiles, evalúa el portafolio con reglas trazables, proyecta el bienestar financiero a 12 meses y recomienda una resolución: otorgar, otorgar con condiciones, esperar el mejor momento o activar una Ruta de Bienestar.
 
-**Pasos:**
-1. Descarga el repositorio o haz `git clone`.
-2. Haz **doble clic** en el archivo `index.html`.
-3. ¡Listo! La Estación de Decisión ORIGEN se abrirá en tu navegador (Chrome, Edge, Firefox, Safari).
+![Pantalla principal de ORIGEN: bandeja de decisión](docs/screenshots/01-bandeja-principal.png)
 
-*Opcional: Si quieres ver el landing page de la propuesta arquitectónica, abre `pitch.html`.*
+## Recorrido completo para el jurado
 
-## 🧠 Características Principales
+**[Ver el flujo funcional completo, con capturas y guía de demostración →](DOCUMENTATION.md)**
 
-- **Determinismo y Explicabilidad (Glass-box):** No usamos cajas negras. Cada recomendación de crédito se basa en un sistema de puntaje (scorer) aditivo y trazable. El analista y el afiliado saben *exactamente* por qué se recomendó un producto.
-- **Ruta de Bienestar:** ORIGEN entiende que la mejor decisión financiera a veces es no prestar hoy. Si el endeudamiento supera los topes sanos, sugiere automáticamente una ruta de acompañamiento a 6 meses.
-- **Timing y Canal Inteligente:** El motor genera un *Heatmap* de actividad para deducir la ventana óptima de contacto y elige dinámicamente entre WhatsApp, Email o Push notification, dependiendo del segmento y el producto.
-- **Cero Datacrédito:** La solución infiere las obligaciones costosas externas a partir del comportamiento de pago y el perfil de gasto del afiliado, cumpliendo estrictamente con las restricciones del reto.
+El documento muestra paso a paso la bandeja, la ficha explicable del afiliado, el procesamiento por lote, las reglas, las fuentes y consentimientos, el simulador, el comparador, el laboratorio de evidencia, el cumplimiento del reto y la arquitectura.
 
-## 📁 Estructura del Repositorio
+## Probar el producto
 
-- `index.html`: La Estación de Decisión de ORIGEN (El Dashboard funcional).
-- `pitch.html`: Landing page conceptual de Kepler/Origen.
-- `SPEC.md`: Documento de especificación de requerimientos según el estándar exigido por Colsubsidio.
-- `README.md`: Este archivo.
-- `Recursos Marca Colsubsidio/`: Documentos y assets oficiales del manual de marca de la Caja (aplicados estrictamente en el CSS de `index.html`).
+No requiere instalación, compilación, backend, base de datos ni dependencias de ejecución.
 
-## 🛠️ Tecnologías
+1. Clona o descarga el repositorio.
+2. Abre `index.html` en Chrome, Edge, Firefox o Safari.
+3. Recorre el menú lateral o selecciona un afiliado de la bandeja.
 
-- **Frontend:** HTML5, CSS3 nativo (CSS Variables adaptadas al Manual de Marca oficial: `#ffd000`, `#0067b1`, `#575756`).
-- **Lógica Core:** Vanilla JavaScript ES6+.
-- **Generación de Datos:** Simulador determinístico integrado en el frontend (Generación de población sintética calibrada en memoria).
+> La conexión a internet solo mejora la carga de la tipografía y permite abrir enlaces externos; el motor de demostración se ejecuta en el navegador.
+
+### Accesos rápidos
+
+| Recurso | Uso |
+|---|---|
+| [`index.html`](index.html) | Producto funcional y recorrido principal |
+| [`DOCUMENTATION.md`](DOCUMENTATION.md) | Flujo completo explicado para el jurado |
+| [`SPEC.md`](SPEC.md) | Especificación funcional del reto |
+| [`pitch.html`](pitch.html) | Landing narrativa de la propuesta |
+
+## Qué demuestra ORIGEN
+
+- **Deliberación multiproducto:** compara alternativas y expone el ranking, no solo una aprobación o rechazo.
+- **Decisión explicable:** muestra variables, fuentes, reglas de capacidad, composición del puntaje y justificación.
+- **Bienestar a 12 meses:** contrasta otorgar ahora, esperar y acompañar para elegir el mejor resultado proyectado.
+- **Ruta de Bienestar:** protege al afiliado cuando prestar hoy no es la decisión prudente y programa una nueva evaluación.
+- **Hiperpersonalización verificable:** adapta producto, monto, momento y canal al perfil y a su etapa de vida.
+- **Privacidad por defecto:** la bandeja inicia con nombre y cédula enmascarados mediante el control `Ocultar PII`.
+- **Gobierno del dato:** identifica fuentes, hallazgos, consentimiento o base jurídica y frecuencia de actualización.
+- **Evidencia cuantitativa:** ejecuta un backtest sintético, compara contra una línea base y mide protección, inclusión y valor de cada fuente.
+
+## Flujo de decisión
+
+```mermaid
+flowchart LR
+  A[Perfil del afiliado] --> B[Enriquecimiento autorizado]
+  B --> C[Etapa de vida y capacidad]
+  C --> D[Deliberación del portafolio]
+  D --> E[Proyección a 12 meses]
+  E --> F{Mejor resultado}
+  F -->|Otorgar| G[Producto, monto y condiciones]
+  F -->|Esperar| H[Mejor momento y seguimiento]
+  F -->|No prestar hoy| I[Ruta de Bienestar]
+  G --> J[Canal y ventana de contacto]
+  H --> J
+  I --> J
+```
+
+## Arquitectura del prototipo
+
+- HTML5, CSS3 y JavaScript ES6+ en un único `index.html` funcional.
+- Generación determinística de población sintética en memoria.
+- Gráficos SVG y componentes sin librerías externas de ejecución.
+- Datos de demostración: no contiene información real de afiliados.
+- Persistencia de demostración: el estado se reinicia al recargar la página.
+
+## Alcance y limitaciones
+
+Este repositorio contiene un prototipo funcional para demostración. Las consultas a fuentes externas, los consentimientos, las notificaciones y los desembolsos se simulan en el navegador; una implementación productiva requeriría integraciones seguras con los sistemas autorizados de Colsubsidio, autenticación, auditoría, cifrado, persistencia y validación normativa.
+
+---
+
+**Equipo:** Jesús Ruiz y Yeisson Abril · Hackathon Colsubsidio y 30X · Julio de 2026
