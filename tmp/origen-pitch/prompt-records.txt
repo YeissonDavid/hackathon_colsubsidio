@@ -1,0 +1,18 @@
+Visuales generados con la herramienta integrada image_gen
+
+1. origen-cover.png
+Use case: ads-marketing. Portada 16:9 de innovación financiera colombiana.
+Analista de crédito a la derecha; múltiples señales azules y amarillas convergen
+en una sola ruta de decisión. Paleta #FFD000, #0067B1 y #575756. Sin texto,
+logotipos, números ni marcas de agua.
+
+2. origen-problema.png
+Use case: ads-marketing. Afiliado colombiano abrumado por ofertas genéricas y
+notificaciones desconectadas, concentrado a la derecha, con espacio oscuro a la
+izquierda. Paleta Colsubsidio. Sin texto ni logotipos.
+
+3. origen-cierre.png
+Use case: ads-marketing. Familia colombiana y asesora financiera comparten una
+decisión responsable; una ruta luminosa amarilla y azul conecta presente y futuro.
+Sujetos a la derecha y espacio oscuro a la izquierda. Sin texto ni logotipos.
+

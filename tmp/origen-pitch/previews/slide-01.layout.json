@@ -1,0 +1,501 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/cszd0j",
+    "id": "cszd0j",
+    "slide": 1,
+    "layoutId": "a892eb03-8dad-4d10-9426-b01379097a34",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "4ca0cb6e-2a52-4dad-9761-9985a5160742",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#07101B",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "a892eb03-8dad-4d10-9426-b01379097a34",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "4ca0cb6e-2a52-4dad-9761-9985a5160742",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "4ca0cb6e-2a52-4dad-9761-9985a5160742",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/5credgf2",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "alt": "Analista y señales financieras que convergen en una decisión",
+      "contentType": "image/png",
+      "imageFit": "cover",
+      "asset": {
+        "assetId": "b437f9c4-fd79-48f6-a2cb-41768727a8c0",
+        "contentType": "image/png",
+        "byteLength": 1770163
+      }
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7ihwv6lk",
+      "id": "2",
+      "name": "cover-overlay",
+      "bbox": [
+        0,
+        0,
+        660,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "rgba(5, 11, 18, 0.82)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6h8fm14z",
+      "id": "3",
+      "name": "brand-top-rule",
+      "bbox": [
+        0,
+        0,
+        1280,
+        8
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFD000",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/g7idgry5",
+      "id": "4",
+      "bbox": [
+        64,
+        38,
+        188,
+        38
+      ],
+      "alt": "Colsubsidio",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "0b9d1fa5-6dfc-43b9-9bc9-af447c0b6e8b",
+        "contentType": "image/png",
+        "byteLength": 8273
+      }
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gnqxsvm1",
+      "id": "5",
+      "name": "cover-eyebrow",
+      "bbox": [
+        64,
+        148,
+        520,
+        30
+      ],
+      "geometry": "rect",
+      "text": "RETO 01 · CRÉDITO HIPERPERSONALIZADO",
+      "textPreview": "RETO 01 · CRÉDITO HIPERPERSONALIZADO",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#FFD000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "RETO 01 · CRÉDITO HIPERPERSONALIZADO"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "RETO 01 · CRÉDITO HIPERPERSONALIZADO",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#FFD000",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "RETO 01 · CRÉDITO HIPERPERSONALIZADO",
+              "fontSize": 16,
+              "color": "#FFD000",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vmhgzqlg",
+      "id": "6",
+      "name": "cover-title",
+      "bbox": [
+        64,
+        194,
+        520,
+        84
+      ],
+      "geometry": "rect",
+      "text": "ORIGEN",
+      "textPreview": "ORIGEN",
+      "resolvedFontSize": 66,
+      "resolvedTextStyle": {
+        "fontSize": 66,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ORIGEN"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ORIGEN",
+          "resolvedTextStyle": {
+            "fontSize": 66,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "ORIGEN",
+              "fontSize": 66,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ul8fql4v",
+      "id": "7",
+      "name": "cover-tagline",
+      "bbox": [
+        64,
+        286,
+        520,
+        126
+      ],
+      "geometry": "rect",
+      "text": "Una decisión financiera\nque mejora una vida.",
+      "textPreview": "Una decisión financiera | que mejora una vida.",
+      "resolvedFontSize": 42,
+      "resolvedTextStyle": {
+        "fontSize": 42,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Una decisión financiera"
+          },
+          {
+            "index": 2,
+            "text": "que mejora una vida."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Una decisión financiera",
+          "resolvedTextStyle": {
+            "fontSize": 42,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Una decisión financiera",
+              "fontSize": 42,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "que mejora una vida.",
+          "resolvedTextStyle": {
+            "fontSize": 42,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "que mejora una vida.",
+              "fontSize": 42,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5cjy503i",
+      "id": "8",
+      "name": "cover-rule",
+      "bbox": [
+        64,
+        438,
+        94,
+        5
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFD000",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4baxwv2d",
+      "id": "9",
+      "name": "cover-subtitle",
+      "bbox": [
+        64,
+        466,
+        500,
+        84
+      ],
+      "geometry": "rect",
+      "text": "El copiloto que decide qué ofrecer, cuándo y por qué canal — y sabe decir «hoy no».",
+      "textPreview": "El copiloto que decide qué ofrecer, cuándo y por qué canal — y sabe decir «hoy no».",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "fontSize": 23,
+        "typeface": "+mn-lt",
+        "color": "#D5DEE8",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "El copiloto que decide qué ofrecer, cuándo y por"
+          },
+          {
+            "index": 2,
+            "text": "qué canal — y sabe decir «hoy no»."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "El copiloto que decide qué ofrecer, cuándo y por qué canal — y sabe decir «hoy no».",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "color": "#D5DEE8",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "El copiloto que decide qué ofrecer, cuándo y por qué canal — y sabe decir «hoy no».",
+              "fontSize": 23,
+              "color": "#D5DEE8",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2lgnmx43",
+      "id": "10",
+      "name": "cover-footer",
+      "bbox": [
+        64,
+        648,
+        500,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Hackathon Colsubsidio × 30X · Julio 2026",
+      "textPreview": "Hackathon Colsubsidio × 30X · Julio 2026",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "+mn-lt",
+        "color": "#93A3B5",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Hackathon Colsubsidio × 30X · Julio 2026"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Hackathon Colsubsidio × 30X · Julio 2026",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "color": "#93A3B5",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Hackathon Colsubsidio × 30X · Julio 2026",
+              "fontSize": 15,
+              "color": "#93A3B5",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

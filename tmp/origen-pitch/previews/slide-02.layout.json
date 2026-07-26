@@ -1,0 +1,814 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/ni7ch5",
+    "id": "ni7ch5",
+    "slide": 2,
+    "layoutId": "a892eb03-8dad-4d10-9426-b01379097a34",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "4ca0cb6e-2a52-4dad-9761-9985a5160742",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#07101B",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "a892eb03-8dad-4d10-9426-b01379097a34",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "4ca0cb6e-2a52-4dad-9761-9985a5160742",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "4ca0cb6e-2a52-4dad-9761-9985a5160742",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/7qdk36ts",
+      "id": "1",
+      "bbox": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "alt": "Afiliado abrumado por ofertas financieras genéricas",
+      "contentType": "image/png",
+      "imageFit": "cover",
+      "asset": {
+        "assetId": "16bd3a4f-ff80-45b9-b333-aef89bb3f5f5",
+        "contentType": "image/png",
+        "byteLength": 1517214
+      }
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/58ji94ra",
+      "id": "2",
+      "name": "problem-overlay",
+      "bbox": [
+        0,
+        0,
+        670,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "rgba(5, 11, 18, 0.88)",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/47ahgzqp",
+      "id": "3",
+      "name": "problem-blue-edge",
+      "bbox": [
+        0,
+        0,
+        10,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#0067B1",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/ud4jy1cj",
+      "id": "4",
+      "bbox": [
+        64,
+        34,
+        175,
+        35
+      ],
+      "alt": "Colsubsidio",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "155968aa-9857-4934-bdec-4ab3bd29a0cb",
+        "contentType": "image/png",
+        "byteLength": 8273
+      }
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/uh8zapsn",
+      "id": "5",
+      "name": "slide-number-2",
+      "bbox": [
+        1134,
+        42,
+        86,
+        24
+      ],
+      "geometry": "rect",
+      "text": "02 / 05",
+      "textPreview": "02 / 05",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "+mn-lt",
+        "color": "#93A3B5",
+        "bold": true,
+        "alignment": "right",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "02 / 05"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "02 / 05",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "color": "#93A3B5",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "02 / 05",
+              "fontSize": 14,
+              "color": "#93A3B5",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h4zi5kry",
+      "id": "6",
+      "name": "problem-title",
+      "bbox": [
+        64,
+        112,
+        560,
+        112
+      ],
+      "geometry": "rect",
+      "text": "La personalización falla\ncuando empieza por el producto.",
+      "textPreview": "La personalización falla | cuando empieza por el producto.",
+      "resolvedFontSize": 40,
+      "resolvedTextStyle": {
+        "fontSize": 40,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "La personalización falla"
+          },
+          {
+            "index": 2,
+            "text": "cuando empieza por el"
+          },
+          {
+            "index": 3,
+            "text": "producto."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "La personalización falla",
+          "resolvedTextStyle": {
+            "fontSize": 40,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "La personalización falla",
+              "fontSize": 40,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "cuando empieza por el producto.",
+          "resolvedTextStyle": {
+            "fontSize": 40,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "cuando empieza por el producto.",
+              "fontSize": 40,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wjqhcfad",
+      "id": "7",
+      "name": "problem-1-label",
+      "bbox": [
+        64,
+        272,
+        220,
+        28
+      ],
+      "geometry": "rect",
+      "text": "OFERTA GENÉRICA",
+      "textPreview": "OFERTA GENÉRICA",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#FFD000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "OFERTA GENÉRICA"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "OFERTA GENÉRICA",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#FFD000",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "OFERTA GENÉRICA",
+              "fontSize": 16,
+              "color": "#FFD000",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7exgza9w",
+      "id": "8",
+      "name": "problem-1-copy",
+      "bbox": [
+        64,
+        302,
+        420,
+        34
+      ],
+      "geometry": "rect",
+      "text": "Ignora el momento de vida.",
+      "textPreview": "Ignora el momento de vida.",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "fontSize": 23,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ignora el momento de vida."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ignora el momento de vida.",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "color": "#FFFFFF",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ignora el momento de vida.",
+              "fontSize": 23,
+              "color": "#FFFFFF",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mdoz65sb",
+      "id": "9",
+      "name": "problem-rule-1",
+      "bbox": [
+        64,
+        346,
+        470,
+        1
+      ],
+      "geometry": "rect",
+      "fillColor": "#314154",
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0v2horep",
+      "id": "10",
+      "name": "problem-2-label",
+      "bbox": [
+        64,
+        370,
+        220,
+        28
+      ],
+      "geometry": "rect",
+      "text": "CANAL INCORRECTO",
+      "textPreview": "CANAL INCORRECTO",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#0067B1",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "CANAL INCORRECTO"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "CANAL INCORRECTO",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#0067B1",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "CANAL INCORRECTO",
+              "fontSize": 16,
+              "color": "#0067B1",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lwbixwfa",
+      "id": "11",
+      "name": "problem-2-copy",
+      "bbox": [
+        64,
+        400,
+        430,
+        34
+      ],
+      "geometry": "rect",
+      "text": "Convierte atención en fricción.",
+      "textPreview": "Convierte atención en fricción.",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "fontSize": 23,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Convierte atención en fricción."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Convierte atención en fricción.",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "color": "#FFFFFF",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Convierte atención en fricción.",
+              "fontSize": 23,
+              "color": "#FFFFFF",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ytkzmhwz",
+      "id": "12",
+      "name": "problem-rule-2",
+      "bbox": [
+        64,
+        444,
+        470,
+        1
+      ],
+      "geometry": "rect",
+      "fillColor": "#314154",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zut0vmx4",
+      "id": "13",
+      "name": "problem-3-label",
+      "bbox": [
+        64,
+        468,
+        220,
+        28
+      ],
+      "geometry": "rect",
+      "text": "DECISIÓN OPACA",
+      "textPreview": "DECISIÓN OPACA",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#E35D67",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "DECISIÓN OPACA"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "DECISIÓN OPACA",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#E35D67",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "DECISIÓN OPACA",
+              "fontSize": 16,
+              "color": "#E35D67",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cr2hkryt",
+      "id": "14",
+      "name": "problem-3-copy",
+      "bbox": [
+        64,
+        498,
+        430,
+        34
+      ],
+      "geometry": "rect",
+      "text": "Debilita confianza y control.",
+      "textPreview": "Debilita confianza y control.",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "fontSize": 23,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Debilita confianza y control."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Debilita confianza y control.",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "color": "#FFFFFF",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Debilita confianza y control.",
+              "fontSize": 23,
+              "color": "#FFFFFF",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dsbitwfe",
+      "id": "15",
+      "name": "problem-thesis",
+      "bbox": [
+        64,
+        576,
+        500,
+        90
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(15, 42, 67, 0.94)",
+      "lineColor": "#0067B1",
+      "lineWidth": 1
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q50zihgn",
+      "id": "16",
+      "name": "problem-thesis-copy",
+      "bbox": [
+        86,
+        594,
+        456,
+        58
+      ],
+      "geometry": "rect",
+      "text": "La pregunta no es qué crédito colocar.\nEs cuál decisión mejora a esta persona, hoy.",
+      "textPreview": "La pregunta no es qué crédito colocar. | Es cuál decisión mejora a esta persona, hoy.",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "fontSize": 21,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "La pregunta no es qué crédito colocar."
+          },
+          {
+            "index": 2,
+            "text": "Es cuál decisión mejora a esta persona, hoy."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "La pregunta no es qué crédito colocar.",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "La pregunta no es qué crédito colocar.",
+              "fontSize": 21,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Es cuál decisión mejora a esta persona, hoy.",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Es cuál decisión mejora a esta persona, hoy.",
+              "fontSize": 21,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

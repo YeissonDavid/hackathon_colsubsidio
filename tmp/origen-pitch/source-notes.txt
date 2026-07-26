@@ -1,0 +1,35 @@
+ORIGEN pitch — fuentes y trazabilidad
+
+Fuente oficial del evento
+- https://innovacion.colsubsidio.com/
+  - Hackathon Colsubsidio × 30X.
+  - 22 al 26 de julio de 2026, modalidad híbrida, Bogotá.
+  - Reto 01: Crédito hiperpersonalizado.
+  - Pregunta: enriquecer el perfil para decidir qué ofrecer, cuándo y por qué canal.
+  - Las soluciones ganadoras pasan a evaluación con el equipo de producto.
+
+Fuentes locales del prototipo
+- README.md
+  - ORIGEN es un copiloto de deliberación financiera para analistas.
+  - Evalúa el portafolio, proyecta bienestar a 12 meses y puede activar Ruta de Bienestar.
+  - Cero dependencias externas; funciona en el navegador.
+- SPEC.md
+  - Usuario primario: analista/gestor de crédito.
+  - Flujo: ingreso, enriquecimiento, deliberación, proyección y resolución.
+  - Criterios: zero-dependency, determinismo y explicabilidad visual.
+- docs/ARCHITECTURE.md
+  - Arquitectura y separación del motor determinístico.
+- tests/run-node.js y tests/specs/*
+  - Ejecución verificada el 26-jul-2026: 75/75 pruebas correctas.
+- Capturas locales del MVP
+  - output/pitch-assets/origen-bandeja.png
+  - output/pitch-assets/origen-decision.png
+  - output/pitch-assets/origen-proyeccion.png
+
+Marca
+- assets/brand/colores-oficiales.png
+  - Amarillo: #FFD000
+  - Azul: #0067B1
+  - Grafito: #575756
+- assets/brand/logo.png y logo-v1.png
+

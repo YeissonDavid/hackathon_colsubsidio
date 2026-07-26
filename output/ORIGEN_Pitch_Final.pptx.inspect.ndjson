@@ -1,0 +1,104 @@
+{"kind":"deck","id":"pr/8bwdri","name":"Deck"}
+{"kind":"layout","layoutId":"4ca0cb6e-2a52-4dad-9761-9985a5160742","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"a892eb03-8dad-4d10-9426-b01379097a34","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/cszd0j","slide":1,"title":"RETO 01 · CRÉDITO HIPERPERSONALIZADO","textShapes":5}
+{"kind":"shape","id":"sh/7ihwv6lk","slide":1,"name":"cover-overlay","bbox":[0,0,660,720]}
+{"kind":"shape","id":"sh/6h8fm14z","slide":1,"name":"brand-top-rule","bbox":[0,0,1280,8]}
+{"kind":"textbox","id":"sh/gnqxsvm1","slide":1,"name":"cover-eyebrow","text":"RETO 01 · CRÉDITO HIPERPERSONALIZADO","textPreview":"RETO 01 · CRÉDITO HIPERPERSONALIZADO","textChars":36,"textLines":1,"bbox":[64,148,520,30]}
+{"kind":"textbox","id":"sh/vmhgzqlg","slide":1,"name":"cover-title","text":"ORIGEN","textPreview":"ORIGEN","textChars":6,"textLines":1,"bbox":[64,194,520,84]}
+{"kind":"textbox","id":"sh/ul8fql4v","slide":1,"name":"cover-tagline","text":"Una decisión financiera\nque mejora una vida.","textPreview":"Una decisión financiera | que mejora una vida.","textChars":44,"textLines":2,"bbox":[64,286,520,126]}
+{"kind":"shape","id":"sh/5cjy503i","slide":1,"name":"cover-rule","bbox":[64,438,94,5]}
+{"kind":"textbox","id":"sh/4baxwv2d","slide":1,"name":"cover-subtitle","text":"El copiloto que decide qué ofrecer, cuándo y por qué canal — y sabe decir «hoy no».","textPreview":"El copiloto que decide qué ofrecer, cuándo y por qué canal — y sabe decir «hoy no».","textChars":83,"textLines":1,"bbox":[64,466,500,84]}
+{"kind":"textbox","id":"sh/2lgnmx43","slide":1,"name":"cover-footer","text":"Hackathon Colsubsidio × 30X · Julio 2026","textPreview":"Hackathon Colsubsidio × 30X · Julio 2026","textChars":40,"textLines":1,"bbox":[64,648,500,24]}
+{"kind":"image","id":"im/5credgf2","slide":1,"name":"","alt":"Analista y señales financieras que convergen en una decisión","bbox":[0,0,1280,720]}
+{"kind":"image","id":"im/g7idgry5","slide":1,"name":"","alt":"Colsubsidio","bbox":[64,38,188,38]}
+{"kind":"notes","id":"nt/cszd0j","slide":1,"text":"Apertura: el reto no es colocar más crédito; es tomar una mejor decisión para cada afiliado.\n\n[Sources]\n- https://innovacion.colsubsidio.com/ — formulación oficial del reto y evento.\n- D:\\PROYECTOS\\HACKATONES\\30X\\hackaton_colsubsidio\\hackathon_colsubsidio\\README.md — propósito y propuesta de ORIGEN.\n- D:\\PROYECTOS\\HACKATONES\\30X\\hackaton_colsubsidio\\hackathon_colsubsidio\\tmp\\origen-pitch\\prompt-records.txt — prompt del visual generado para portada.\n[/Sources]"}
+{"kind":"slide","id":"sl/ni7ch5","slide":2,"title":"02 / 05","textShapes":9}
+{"kind":"shape","id":"sh/58ji94ra","slide":2,"name":"problem-overlay","bbox":[0,0,670,720]}
+{"kind":"shape","id":"sh/47ahgzqp","slide":2,"name":"problem-blue-edge","bbox":[0,0,10,720]}
+{"kind":"textbox","id":"sh/uh8zapsn","slide":2,"name":"slide-number-2","text":"02 / 05","textPreview":"02 / 05","textChars":7,"textLines":1,"bbox":[1134,42,86,24]}
+{"kind":"textbox","id":"sh/h4zi5kry","slide":2,"name":"problem-title","text":"La personalización falla\ncuando empieza por el producto.","textPreview":"La personalización falla | cuando empieza por el producto.","textChars":56,"textLines":2,"bbox":[64,112,560,112]}
+{"kind":"textbox","id":"sh/wjqhcfad","slide":2,"name":"problem-1-label","text":"OFERTA GENÉRICA","textPreview":"OFERTA GENÉRICA","textChars":15,"textLines":1,"bbox":[64,272,220,28]}
+{"kind":"textbox","id":"sh/7exgza9w","slide":2,"name":"problem-1-copy","text":"Ignora el momento de vida.","textPreview":"Ignora el momento de vida.","textChars":26,"textLines":1,"bbox":[64,302,420,34]}
+{"kind":"shape","id":"sh/mdoz65sb","slide":2,"name":"problem-rule-1","bbox":[64,346,470,1]}
+{"kind":"textbox","id":"sh/0v2horep","slide":2,"name":"problem-2-label","text":"CANAL INCORRECTO","textPreview":"CANAL INCORRECTO","textChars":16,"textLines":1,"bbox":[64,370,220,28]}
+{"kind":"textbox","id":"sh/lwbixwfa","slide":2,"name":"problem-2-copy","text":"Convierte atención en fricción.","textPreview":"Convierte atención en fricción.","textChars":31,"textLines":1,"bbox":[64,400,430,34]}
+{"kind":"shape","id":"sh/ytkzmhwz","slide":2,"name":"problem-rule-2","bbox":[64,444,470,1]}
+{"kind":"textbox","id":"sh/zut0vmx4","slide":2,"name":"problem-3-label","text":"DECISIÓN OPACA","textPreview":"DECISIÓN OPACA","textChars":14,"textLines":1,"bbox":[64,468,220,28]}
+{"kind":"textbox","id":"sh/cr2hkryt","slide":2,"name":"problem-3-copy","text":"Debilita confianza y control.","textPreview":"Debilita confianza y control.","textChars":29,"textLines":1,"bbox":[64,498,430,34]}
+{"kind":"shape","id":"sh/dsbitwfe","slide":2,"name":"problem-thesis","bbox":[64,576,500,90]}
+{"kind":"textbox","id":"sh/q50zihgn","slide":2,"name":"problem-thesis-copy","text":"La pregunta no es qué crédito colocar.\nEs cuál decisión mejora a esta persona, hoy.","textPreview":"La pregunta no es qué crédito colocar. | Es cuál decisión mejora a esta persona, hoy.","textChars":83,"textLines":2,"bbox":[86,594,456,58]}
+{"kind":"image","id":"im/7qdk36ts","slide":2,"name":"","alt":"Afiliado abrumado por ofertas financieras genéricas","bbox":[0,0,1280,720]}
+{"kind":"image","id":"im/ud4jy1cj","slide":2,"name":"","alt":"Colsubsidio","bbox":[64,34,175,35]}
+{"kind":"notes","id":"nt/ni7ch5","slide":2,"text":"Tensión: una oferta puede ser elegible y aun así ser irrelevante, inoportuna o dañina.\n\n[Sources]\n- https://innovacion.colsubsidio.com/ — el reto pide decidir qué ofrecer, cuándo y por qué canal.\n- D:\\PROYECTOS\\HACKATONES\\30X\\hackaton_colsubsidio\\hackathon_colsubsidio\\README.md — cambio de pregunta: de colocación a mejor decisión financiera.\n- D:\\PROYECTOS\\HACKATONES\\30X\\hackaton_colsubsidio\\hackathon_colsubsidio\\tmp\\origen-pitch\\prompt-records.txt — prompt del visual generado para esta diapositiva.\n[/Sources]"}
+{"kind":"slide","id":"sl/w15rmm","slide":3,"title":"03 / 05","textShapes":19}
+{"kind":"shape","id":"sh/18vadcbm","slide":3,"name":"solution-top-rule","bbox":[0,0,1280,8]}
+{"kind":"textbox","id":"sh/z6dsbmtg","slide":3,"name":"slide-number-3","text":"03 / 05","textPreview":"03 / 05","textChars":7,"textLines":1,"bbox":[1134,42,86,24]}
+{"kind":"textbox","id":"sh/ov69orud","slide":3,"name":"solution-title","text":"ORIGEN delibera antes de ofrecer.","textPreview":"ORIGEN delibera antes de ofrecer.","textChars":33,"textLines":1,"bbox":[64,112,920,54]}
+{"kind":"textbox","id":"sh/9wfahwbi","slide":3,"name":"solution-subtitle","text":"Una caja de cristal conecta datos autorizados, capacidad, portafolio y bienestar.","textPreview":"Una caja de cristal conecta datos autorizados, capacidad, portafolio y bienestar.","textChars":81,"textLines":1,"bbox":[64,174,900,36]}
+{"kind":"shape","id":"sh/m94rmhc7","slide":3,"name":"solution-baseline","bbox":[152,350,976,4]}
+{"kind":"shape","id":"sh/naxsfmts","slide":3,"name":"arrow-1","bbox":[336,338,34,28]}
+{"kind":"shape","id":"sh/4z29c7ut","slide":3,"name":"arrow-2","bbox":[622,338,34,28]}
+{"kind":"shape","id":"sh/p0ba5sbe","slide":3,"name":"arrow-3","bbox":[908,338,34,28]}
+{"kind":"textbox","id":"sh/tczmxob2","slide":3,"name":"arrow-glyph-1","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[338,327,32,40]}
+{"kind":"textbox","id":"sh/sbq5ojah","slide":3,"name":"arrow-glyph-2","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[624,327,32,40]}
+{"kind":"textbox","id":"sh/rah4vetc","slide":3,"name":"arrow-glyph-3","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[910,327,32,40]}
+{"kind":"shape","id":"sh/6p83m9sr","slide":3,"name":"stage-node-01","bbox":[110,314,76,76]}
+{"kind":"textbox","id":"sh/1gjm1obe","slide":3,"name":"stage-number-01","text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[110,333,76,30]}
+{"kind":"textbox","id":"sh/gfa5sjat","slide":3,"name":"stage-label-01","text":"SEÑALES","textPreview":"SEÑALES","textChars":7,"textLines":1,"bbox":[92,414,112,28]}
+{"kind":"textbox","id":"sh/feh4zyt8","slide":3,"name":"stage-copy-01","text":"In-house + exógenas\nautorizadas","textPreview":"In-house + exógenas | autorizadas","textChars":31,"textLines":2,"bbox":[68,452,160,66]}
+{"kind":"shape","id":"sh/ed8nqtsn","slide":3,"name":"stage-node-02","bbox":[396,314,76,76]}
+{"kind":"textbox","id":"sh/pkjm58ra","slide":3,"name":"stage-number-02","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[396,333,76,30]}
+{"kind":"textbox","id":"sh/oja5w3ap","slide":3,"name":"stage-label-02","text":"DELIBERA","textPreview":"DELIBERA","textChars":8,"textLines":1,"bbox":[378,414,112,28]}
+{"kind":"textbox","id":"sh/onips7i1","slide":3,"name":"stage-copy-02","text":"7 productos +\ncapacidad de pago","textPreview":"7 productos + | capacidad de pago","textChars":31,"textLines":2,"bbox":[354,452,160,66]}
+{"kind":"shape","id":"sh/9or61czm","slide":3,"name":"stage-node-03","bbox":[682,314,76,76]}
+{"kind":"textbox","id":"sh/ml07qx0v","slide":3,"name":"stage-number-03","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[682,333,76,30]}
+{"kind":"textbox","id":"sh/nm9oz2hg","slide":3,"name":"stage-label-03","text":"PROYECTA","textPreview":"PROYECTA","textChars":8,"textLines":1,"bbox":[664,414,112,28]}
+{"kind":"textbox","id":"sh/wr2pwrix","slide":3,"name":"stage-copy-03","text":"Otorgar · esperar ·\nacompañar","textPreview":"Otorgar · esperar · | acompañar","textChars":29,"textLines":2,"bbox":[640,452,160,66]}
+{"kind":"shape","id":"sh/xsb65wzi","slide":3,"name":"stage-node-04","bbox":[968,314,76,76]}
+{"kind":"textbox","id":"sh/ap07uh07","slide":3,"name":"stage-number-04","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[968,333,76,30]}
+{"kind":"textbox","id":"sh/bqto3mhs","slide":3,"name":"stage-label-04","text":"RESUELVE","textPreview":"RESUELVE","textChars":8,"textLines":1,"bbox":[950,414,112,28]}
+{"kind":"textbox","id":"sh/cvy50nit","slide":3,"name":"stage-copy-04","text":"Producto · monto ·\ncanal · razón","textPreview":"Producto · monto · | canal · razón","textChars":32,"textLines":2,"bbox":[926,452,160,66]}
+{"kind":"shape","id":"sh/dw76tsze","slide":3,"name":"route-callout","bbox":[190,572,900,92]}
+{"kind":"shape","id":"sh/vaxszq1w","slide":3,"name":"route-marker","bbox":[214,598,16,40]}
+{"kind":"textbox","id":"sh/u94r6lkb","slide":3,"name":"route-copy","text":"Si prestar empeora el bienestar, la mejor decisión es acompañar.","textPreview":"Si prestar empeora el bienestar, la mejor decisión es acompañar.","textChars":64,"textLines":1,"bbox":[252,590,802,56]}
+{"kind":"image","id":"im/ra54nqxw","slide":3,"name":"","alt":"Colsubsidio","bbox":[64,34,175,35]}
+{"kind":"notes","id":"nt/w15rmm","slide":3,"text":"Núcleo: ORIGEN compara alternativas y escenarios; el producto no manda sobre el bienestar.\n\n[Sources]\n- D:\\PROYECTOS\\HACKATONES\\30X\\hackaton_colsubsidio\\hackathon_colsubsidio\\README.md — siete líneas, ranking, proyección y Ruta de Bienestar.\n- D:\\PROYECTOS\\HACKATONES\\30X\\hackaton_colsubsidio\\hackathon_colsubsidio\\SPEC.md — flujo de enriquecimiento, deliberación, proyección y resolución.\n- D:\\PROYECTOS\\HACKATONES\\30X\\hackaton_colsubsidio\\hackathon_colsubsidio\\docs\\ARCHITECTURE.md — arquitectura del motor determinístico.\n[/Sources]"}
+{"kind":"slide","id":"sl/z3w613","slide":4,"title":"04 / 05","textShapes":10}
+{"kind":"shape","id":"sh/4jm5oz2h","slide":4,"name":"proof-yellow-edge","bbox":[0,0,10,720]}
+{"kind":"textbox","id":"sh/ixknmpkb","slide":4,"name":"slide-number-4","text":"04 / 05","textPreview":"04 / 05","textChars":7,"textLines":1,"bbox":[1134,42,86,24]}
+{"kind":"textbox","id":"sh/tov6lojy","slide":4,"name":"proof-title","text":"Una cédula entra; una decisión auditable sale.","textPreview":"Una cédula entra; una decisión auditable sale.","textChars":46,"textLines":1,"bbox":[64,102,1100,54]}
+{"kind":"textbox","id":"sh/snm5sj2d","slide":4,"name":"proof-tests-number","text":"75/75","textPreview":"75/75","textChars":5,"textLines":1,"bbox":[64,206,300,68]}
+{"kind":"textbox","id":"sh/rmdoje1s","slide":4,"name":"proof-tests-label","text":"pruebas en verde","textPreview":"pruebas en verde","textChars":16,"textLines":1,"bbox":[68,272,260,28]}
+{"kind":"shape","id":"sh/6l4nq9kn","slide":4,"name":"proof-rule-1","bbox":[64,322,300,1]}
+{"kind":"textbox","id":"sh/1sf6poja","slide":4,"name":"proof-deps-number","text":"0","textPreview":"0","textChars":1,"textLines":1,"bbox":[64,350,130,66]}
+{"kind":"textbox","id":"sh/gr65wj2p","slide":4,"name":"proof-deps-label","text":"dependencias externas","textPreview":"dependencias externas","textChars":21,"textLines":1,"bbox":[68,416,280,28]}
+{"kind":"shape","id":"sh/u5cv2tgz","slide":4,"name":"proof-rule-2","bbox":[64,466,300,1]}
+{"kind":"textbox","id":"sh/v6lwbexk","slide":4,"name":"proof-pop-number","text":"220","textPreview":"220","textChars":3,"textLines":1,"bbox":[64,494,170,66]}
+{"kind":"textbox","id":"sh/g7ud4jy5","slide":4,"name":"proof-pop-label","text":"perfiles demo reproducibles","textPreview":"perfiles demo reproducibles","textChars":27,"textLines":1,"bbox":[68,560,300,48]}
+{"kind":"textbox","id":"sh/h83edofq","slide":4,"name":"proof-privacy","text":"PII enmascarada por defecto","textPreview":"PII enmascarada por defecto","textChars":27,"textLines":1,"bbox":[68,628,300,28]}
+{"kind":"shape","id":"sh/i9cv6tgb","slide":4,"name":"proof-frame","bbox":[426,178,798,470]}
+{"kind":"shape","id":"sh/4bed83yh","slide":4,"name":"proof-caption-bg","bbox":[464,608,712,44]}
+{"kind":"textbox","id":"sh/5cneh8fm","slide":4,"name":"proof-caption","text":"Monto · cuota · plazo · canal · franja · explicación","textPreview":"Monto · cuota · plazo · canal · franja · explicación","textChars":52,"textLines":1,"bbox":[482,619,676,24]}
+{"kind":"image","id":"im/6d47epo7","slide":4,"name":"","alt":"Colsubsidio","bbox":[64,34,175,35]}
+{"kind":"image","id":"im/o76507q5","slide":4,"name":"","geometry":"roundRect","alt":"Captura del MVP ORIGEN con capacidad, deliberación y resolución","bbox":[440,192,770,442]}
+{"kind":"notes","id":"nt/z3w613","slide":4,"text":"Demostración: abrir un caso y mostrar cómo la capacidad, el ranking y la entrega sostienen la resolución.\n\n[Sources]\n- D:\\PROYECTOS\\HACKATONES\\30X\\hackaton_colsubsidio\\hackathon_colsubsidio\\tests\\run-node.js y tests/specs/* — ejecución verificada: 75/75 pruebas correctas.\n- D:\\PROYECTOS\\HACKATONES\\30X\\hackaton_colsubsidio\\hackathon_colsubsidio\\README.md — cero dependencias externas y población demo.\n- D:\\PROYECTOS\\HACKATONES\\30X\\hackaton_colsubsidio\\hackathon_colsubsidio\\output\\pitch-assets\\origen-proyeccion.png — captura local del MVP el 26-jul-2026.\n[/Sources]"}
+{"kind":"slide","id":"sl/4vbojk","slide":5,"title":"05 / 05","textShapes":10}
+{"kind":"shape","id":"sh/bmpkrm5g","slide":5,"name":"close-overlay","bbox":[0,0,690,720]}
+{"kind":"shape","id":"sh/algjyhov","slide":5,"name":"close-top-rule","bbox":[0,0,1280,8]}
+{"kind":"textbox","id":"sh/kbi14r6x","slide":5,"name":"slide-number-5","text":"05 / 05","textPreview":"05 / 05","textChars":7,"textLines":1,"bbox":[1134,42,86,24]}
+{"kind":"textbox","id":"sh/jq9kvm5c","slide":5,"name":"close-title","text":"Piloteemos una decisión mejor,\nno una oferta más.","textPreview":"Piloteemos una decisión mejor, | no una oferta más.","textChars":49,"textLines":2,"bbox":[64,118,580,112]}
+{"kind":"textbox","id":"sh/yp0j2ho7","slide":5,"name":"close-subtitle","text":"ORIGEN está listo para pasar de demo a piloto con Colsubsidio.","textPreview":"ORIGEN está listo para pasar de demo a piloto con Colsubsidio.","textChars":62,"textLines":1,"bbox":[64,246,540,54]}
+{"kind":"textbox","id":"sh/1gn2lsne","slide":5,"name":"pilot-number-01","text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[64,328,52,30]}
+{"kind":"textbox","id":"sh/0fe1sn6t","slide":5,"name":"pilot-label-01","text":"Conectar fuentes reales","textPreview":"Conectar fuentes reales","textChars":23,"textLines":1,"bbox":[126,326,420,34]}
+{"kind":"shape","id":"sh/mdsn6d4v","slide":5,"name":"pilot-rule-01","bbox":[126,372,420,1]}
+{"kind":"textbox","id":"sh/nel4fyl0","slide":5,"name":"pilot-number-02","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[64,400,52,30]}
+{"kind":"textbox","id":"sh/ofu583ml","slide":5,"name":"pilot-label-02","text":"Calibrar política de riesgo","textPreview":"Calibrar política de riesgo","textChars":27,"textLines":1,"bbox":[126,398,420,34]}
+{"kind":"shape","id":"sh/9g36h836","slide":5,"name":"pilot-rule-02","bbox":[126,444,420,1]}
+{"kind":"textbox","id":"sh/ahcnad4r","slide":5,"name":"pilot-number-03","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[64,472,52,30]}
+{"kind":"textbox","id":"sh/bilojilc","slide":5,"name":"pilot-label-03","text":"Medir conversión y bienestar","textPreview":"Medir conversión y bienestar","textChars":28,"textLines":1,"bbox":[126,470,420,34]}
+{"kind":"shape","id":"sh/wju5cnmx","slide":5,"name":"close-quote-rule","bbox":[64,574,8,92]}
+{"kind":"textbox","id":"sh/xk36ls3i","slide":5,"name":"close-quote","text":"El mejor crédito no es el que se puede aprobar,\nsino el que mejora una vida.","textPreview":"El mejor crédito no es el que se puede aprobar, | sino el que mejora una vida.","textChars":76,"textLines":2,"bbox":[90,580,520,82]}
+{"kind":"image","id":"im/p07i54vu","slide":5,"name":"","alt":"Familia y asesora avanzan hacia una decisión financiera responsable","bbox":[0,0,1280,720]}
+{"kind":"image","id":"im/cny1gze5","slide":5,"name":"","alt":"Colsubsidio","bbox":[64,34,175,35]}
+{"kind":"notes","id":"nt/4vbojk","slide":5,"text":"Cierre: solicitar una decisión concreta — un piloto con fuentes reales, política calibrada y medición doble de negocio y bienestar.\n\n[Sources]\n- https://innovacion.colsubsidio.com/ — las soluciones ganadoras pasan a evaluación con el equipo de producto.\n- D:\\PROYECTOS\\HACKATONES\\30X\\hackaton_colsubsidio\\hackathon_colsubsidio\\README.md — propósito y frase central de ORIGEN.\n- D:\\PROYECTOS\\HACKATONES\\30X\\hackaton_colsubsidio\\hackathon_colsubsidio\\tmp\\origen-pitch\\prompt-records.txt — prompt del visual generado para el cierre.\n[/Sources]"}

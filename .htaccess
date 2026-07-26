@@ -11,21 +11,36 @@
 # ==========================================================================
 
 # --- No servir documentación ni archivos de desarrollo --------------------
+#
+# La denegación va duplicada a propósito. `Require all denied` es sintaxis de
+# Apache 2.4; en 2.2 provoca un error 500 que tumbaría el sitio COMPLETO, no solo
+# estos archivos. Los guardas `<IfModule>` eligen la forma correcta según lo que
+# tenga el servidor, así que funciona en ambos y nunca revienta.
 <FilesMatch "\.(md|py|log|bak|orig|editorconfig|gitattributes|gitignore)$">
-  Require all denied
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
 </FilesMatch>
 
-# --- No servir carpetas de trabajo y de pruebas ---------------------------
+# --- No servir carpetas de trabajo ----------------------------------------
 # `private/` está en el .gitignore y no debería llegar al servidor, pero si
 # alguien sube por FTP la carpeta completa, esta regla lo cubre.
-RedirectMatch 404 ^/(private|\.git)(/|$)
+<IfModule mod_alias.c>
+  RedirectMatch 404 ^/(private|\.git)(/|$)
+</IfModule>
 
 # --- Página de entrada ----------------------------------------------------
 DirectoryIndex index.html
 
 # --- No listar directorios ------------------------------------------------
 # Sin esto, entrar a /assets/ devuelve el índice completo de archivos.
-Options -Indexes
+# `+FollowSymLinks` se mantiene porque algunos hostings lo requieren para que
+# funcione mod_rewrite; quitarlo sin más puede romper otras reglas.
+Options -Indexes +FollowSymLinks
 
 # --- Tipos MIME -----------------------------------------------------------
 # Hostinger normalmente los acierta, pero declararlos evita que un .js se sirva

@@ -1,0 +1,834 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/z3w613",
+    "id": "z3w613",
+    "slide": 4,
+    "layoutId": "a892eb03-8dad-4d10-9426-b01379097a34",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "4ca0cb6e-2a52-4dad-9761-9985a5160742",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#07101B",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "a892eb03-8dad-4d10-9426-b01379097a34",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "4ca0cb6e-2a52-4dad-9761-9985a5160742",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "4ca0cb6e-2a52-4dad-9761-9985a5160742",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4jm5oz2h",
+      "id": "1",
+      "name": "proof-yellow-edge",
+      "bbox": [
+        0,
+        0,
+        10,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFD000",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/6d47epo7",
+      "id": "2",
+      "bbox": [
+        64,
+        34,
+        175,
+        35
+      ],
+      "alt": "Colsubsidio",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "d39e4f71-d382-4a3a-bdc6-03493ef42e1d",
+        "contentType": "image/png",
+        "byteLength": 8273
+      }
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ixknmpkb",
+      "id": "3",
+      "name": "slide-number-4",
+      "bbox": [
+        1134,
+        42,
+        86,
+        24
+      ],
+      "geometry": "rect",
+      "text": "04 / 05",
+      "textPreview": "04 / 05",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "+mn-lt",
+        "color": "#93A3B5",
+        "bold": true,
+        "alignment": "right",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "04 / 05"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "04 / 05",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "color": "#93A3B5",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "04 / 05",
+              "fontSize": 14,
+              "color": "#93A3B5",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tov6lojy",
+      "id": "4",
+      "name": "proof-title",
+      "bbox": [
+        64,
+        102,
+        1100,
+        54
+      ],
+      "geometry": "rect",
+      "text": "Una cédula entra; una decisión auditable sale.",
+      "textPreview": "Una cédula entra; una decisión auditable sale.",
+      "resolvedFontSize": 40,
+      "resolvedTextStyle": {
+        "fontSize": 40,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Una cédula entra; una decisión auditable sale."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Una cédula entra; una decisión auditable sale.",
+          "resolvedTextStyle": {
+            "fontSize": 40,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Una cédula entra; una decisión auditable sale.",
+              "fontSize": 40,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/snm5sj2d",
+      "id": "5",
+      "name": "proof-tests-number",
+      "bbox": [
+        64,
+        206,
+        300,
+        68
+      ],
+      "geometry": "rect",
+      "text": "75/75",
+      "textPreview": "75/75",
+      "resolvedFontSize": 58,
+      "resolvedTextStyle": {
+        "fontSize": 58,
+        "typeface": "+mn-lt",
+        "color": "#FFD000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "75/75"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "75/75",
+          "resolvedTextStyle": {
+            "fontSize": 58,
+            "color": "#FFD000",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "75/75",
+              "fontSize": 58,
+              "color": "#FFD000",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rmdoje1s",
+      "id": "6",
+      "name": "proof-tests-label",
+      "bbox": [
+        68,
+        272,
+        260,
+        28
+      ],
+      "geometry": "rect",
+      "text": "pruebas en verde",
+      "textPreview": "pruebas en verde",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#D5DEE8",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "pruebas en verde"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "pruebas en verde",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#D5DEE8",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "pruebas en verde",
+              "fontSize": 20,
+              "color": "#D5DEE8",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6l4nq9kn",
+      "id": "7",
+      "name": "proof-rule-1",
+      "bbox": [
+        64,
+        322,
+        300,
+        1
+      ],
+      "geometry": "rect",
+      "fillColor": "#314154",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1sf6poja",
+      "id": "8",
+      "name": "proof-deps-number",
+      "bbox": [
+        64,
+        350,
+        130,
+        66
+      ],
+      "geometry": "rect",
+      "text": "0",
+      "textPreview": "0",
+      "resolvedFontSize": 58,
+      "resolvedTextStyle": {
+        "fontSize": 58,
+        "typeface": "+mn-lt",
+        "color": "#0067B1",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "0"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "0",
+          "resolvedTextStyle": {
+            "fontSize": 58,
+            "color": "#0067B1",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "0",
+              "fontSize": 58,
+              "color": "#0067B1",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gr65wj2p",
+      "id": "9",
+      "name": "proof-deps-label",
+      "bbox": [
+        68,
+        416,
+        280,
+        28
+      ],
+      "geometry": "rect",
+      "text": "dependencias externas",
+      "textPreview": "dependencias externas",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#D5DEE8",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "dependencias externas"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "dependencias externas",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#D5DEE8",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "dependencias externas",
+              "fontSize": 20,
+              "color": "#D5DEE8",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u5cv2tgz",
+      "id": "10",
+      "name": "proof-rule-2",
+      "bbox": [
+        64,
+        466,
+        300,
+        1
+      ],
+      "geometry": "rect",
+      "fillColor": "#314154",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/v6lwbexk",
+      "id": "11",
+      "name": "proof-pop-number",
+      "bbox": [
+        64,
+        494,
+        170,
+        66
+      ],
+      "geometry": "rect",
+      "text": "220",
+      "textPreview": "220",
+      "resolvedFontSize": 58,
+      "resolvedTextStyle": {
+        "fontSize": 58,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "220"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "220",
+          "resolvedTextStyle": {
+            "fontSize": 58,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "220",
+              "fontSize": 58,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g7ud4jy5",
+      "id": "12",
+      "name": "proof-pop-label",
+      "bbox": [
+        68,
+        560,
+        300,
+        48
+      ],
+      "geometry": "rect",
+      "text": "perfiles demo reproducibles",
+      "textPreview": "perfiles demo reproducibles",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#D5DEE8",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "perfiles demo reproducibles"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "perfiles demo reproducibles",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#D5DEE8",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "perfiles demo reproducibles",
+              "fontSize": 20,
+              "color": "#D5DEE8",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h83edofq",
+      "id": "13",
+      "name": "proof-privacy",
+      "bbox": [
+        68,
+        628,
+        300,
+        28
+      ],
+      "geometry": "rect",
+      "text": "PII enmascarada por defecto",
+      "textPreview": "PII enmascarada por defecto",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#2DBE7F",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PII enmascarada por defecto"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PII enmascarada por defecto",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#2DBE7F",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PII enmascarada por defecto",
+              "fontSize": 16,
+              "color": "#2DBE7F",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/i9cv6tgb",
+      "id": "14",
+      "name": "proof-frame",
+      "bbox": [
+        426,
+        178,
+        798,
+        470
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#152231",
+      "lineColor": "#0067B1",
+      "lineWidth": 2
+    },
+    {
+      "order": 15,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/o76507q5",
+      "id": "15",
+      "bbox": [
+        440,
+        192,
+        770,
+        442
+      ],
+      "geometry": "roundRect",
+      "alt": "Captura del MVP ORIGEN con capacidad, deliberación y resolución",
+      "contentType": "image/jpeg",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 3167"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "1ef668ea-f81f-4498-93aa-97ef2b9250cf",
+        "contentType": "image/jpeg",
+        "byteLength": 99207
+      }
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4bed83yh",
+      "id": "16",
+      "name": "proof-caption-bg",
+      "bbox": [
+        464,
+        608,
+        712,
+        44
+      ],
+      "geometry": "roundRect",
+      "fillColor": "rgba(7, 16, 27, 0.94)",
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5cneh8fm",
+      "id": "17",
+      "name": "proof-caption",
+      "bbox": [
+        482,
+        619,
+        676,
+        24
+      ],
+      "geometry": "rect",
+      "text": "Monto · cuota · plazo · canal · franja · explicación",
+      "textPreview": "Monto · cuota · plazo · canal · franja · explicación",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "center",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Monto · cuota · plazo · canal · franja · explicación"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Monto · cuota · plazo · canal · franja · explicación",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Monto · cuota · plazo · canal · franja · explicación",
+              "fontSize": 16,
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

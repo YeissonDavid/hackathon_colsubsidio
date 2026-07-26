@@ -127,15 +127,21 @@ puntos—. Eso está verificado con una prueba automática
 pantalla lado a lado con total confianza en las cifras. Solo hay que unificar
 nombres y edades.
 
-### 2.4 El producto tiene dos nombres
+### 2.4 El producto tiene dos nombres (resuelto)
 
-`index.html` y toda la documentación dicen **ORIGEN**. `pitch.html` dice
-**Kepler**, con su propio logotipo y su propia narrativa («del bug al billete»,
-detección de bugs de UX, capa agéntica) que no existe en la aplicación.
+`pitch.html` se presentaba como **Kepler** mientras la aplicación y toda la
+documentación decían **ORIGEN**. El equipo confirmó que el producto es ORIGEN, y
+la landing quedó alineada: título, meta descripción, logotipo, encabezados y las
+16 menciones del cuerpo.
 
-Son dos propuestas distintas presentadas como una. Antes del pitch hay que
-decidir cuál es el producto y alinear la landing con la demo, o el jurado no
-sabrá qué está evaluando.
+Queda una diferencia de fondo que no es de nombre sino de contenido: la landing
+sigue vendiendo una narrativa —«del bug al billete», detección automática de
+bugs de UX, capa agéntica con LLM— que **la aplicación no implementa**. Si el
+jurado ve la landing y después la demo, va a buscar esas piezas y no las va a
+encontrar.
+
+Dos salidas honestas: quitar de la landing lo que no existe, o marcarlo
+explícitamente como hoja de ruta y no como capacidad actual.
 
 ### 2.5 La afirmación de marca del README era falsa (corregida)
 
@@ -363,12 +369,12 @@ Priorizado por impacto en la evaluación dividido por esfuerzo:
 
 | # | Qué | Por qué | Esfuerzo |
 |---|---|---|---|
-| 1 | Unificar el nombre: ORIGEN o Kepler (§2.4) | Un jurado no debe dudar de qué evalúa | 30 min |
-| 2 | Unificar el SMMLV entre los dos motores (§4.1) | Hoy la misma persona cae en categorías distintas según la pantalla | 15 min |
-| 3 | Unificar rótulos de producto entre motores (§2.1) | «Vivienda» en una pantalla e «hipotecario» en otra | 30 min |
-| 4 | Alinear nombres y edades de los perfiles demo (§2.3) | El documento y la demo deben cuadrar en pantalla | 20 min |
-| 5 | Bajar el máximo del Laboratorio a 5.000 (§4.6) | Evita la sensación de cuelgue en vivo | 5 min |
-| 6 | Tipografías en local (§4.3) | Hace literal la afirmación de cero dependencias | 10 min |
+| 1 | Unificar el SMMLV entre los dos motores (§4.1) | Hoy la misma persona cae en categorías distintas según la pantalla | 15 min |
+| 2 | Unificar rótulos de producto entre motores (§2.1) | «Vivienda» en una pantalla e «hipotecario» en otra | 30 min |
+| 3 | Alinear nombres y edades de los perfiles demo (§2.3) | El documento y la demo deben cuadrar en pantalla | 20 min |
+| 4 | Bajar el máximo del Laboratorio a 5.000 (§4.6) | Evita la sensación de cuelgue en vivo | 5 min |
+| 5 | Tipografías en local (§4.3) | Hace literal la afirmación de cero dependencias | 10 min |
+| 6 | Alinear el discurso de la landing con lo que existe (§2.4) | Promete bugs de UX y capa agéntica que la app no tiene | 45 min |
 
 Todo suma menos de dos horas y es puro cierre de coherencia: no hay que
 construir nada nuevo. El mockup de WhatsApp —que en la versión anterior de este
