@@ -35,6 +35,15 @@ const ENGINE = [
   "assets/js/domain/narrative.js",
   "assets/js/domain/decision.js",
   "assets/js/domain/dataset.js",
+  "assets/js/domain/advanced/hash.js",
+  "assets/js/domain/advanced/sources.js",
+  "assets/js/domain/advanced/profile.js",
+  "assets/js/domain/advanced/lifestage.js",
+  "assets/js/domain/advanced/policy.js",
+  "assets/js/domain/advanced/deliberation.js",
+  "assets/js/domain/advanced/delivery.js",
+  "assets/js/domain/advanced/engine.js",
+  "assets/js/domain/lab.js",
   "assets/js/ui/privacy.js",
 ];
 
@@ -46,6 +55,7 @@ const SPECS = [
   "tests/specs/projection.spec.js",
   "tests/specs/privacy.spec.js",
   "tests/specs/format.spec.js",
+  "tests/specs/advanced.spec.js",
 ];
 
 // `window` apunta al propio sandbox: los módulos usan `window.ORIGEN` y no

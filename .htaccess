@@ -1,0 +1,69 @@
+# ==========================================================================
+# ORIGEN · Configuración del servidor (Apache · Hostinger)
+# --------------------------------------------------------------------------
+# El sitio se despliega automáticamente desde origin/main, así que TODO archivo
+# del repositorio queda accesible por URL. Eso incluye la documentación interna:
+# sin estas reglas, cualquiera podría descargar docs/MEJORAS.md —que enumera la
+# deuda técnica y los puntos débiles del proyecto— escribiendo la ruta.
+#
+# La aplicación no necesita ningún .md para funcionar: es documentación para el
+# equipo, no contenido del sitio.
+# ==========================================================================
+
+# --- No servir documentación ni archivos de desarrollo --------------------
+<FilesMatch "\.(md|py|log|bak|orig|editorconfig|gitattributes|gitignore)$">
+  Require all denied
+</FilesMatch>
+
+# --- No servir carpetas de trabajo y de pruebas ---------------------------
+# `private/` está en el .gitignore y no debería llegar al servidor, pero si
+# alguien sube por FTP la carpeta completa, esta regla lo cubre.
+RedirectMatch 404 ^/(private|\.git)(/|$)
+
+# --- Página de entrada ----------------------------------------------------
+DirectoryIndex index.html
+
+# --- No listar directorios ------------------------------------------------
+# Sin esto, entrar a /assets/ devuelve el índice completo de archivos.
+Options -Indexes
+
+# --- Tipos MIME -----------------------------------------------------------
+# Hostinger normalmente los acierta, pero declararlos evita que un .js se sirva
+# como text/plain y el navegador se niegue a ejecutarlo.
+AddType text/javascript .js
+AddType text/css .css
+AddType image/svg+xml .svg
+AddType image/webp .webp
+
+# --- Compresión -----------------------------------------------------------
+# El proyecto son 41 archivos JavaScript y 6 CSS sin minificar: comprimir es la
+# diferencia entre una carga instantánea y una perceptible.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# --- Caché ----------------------------------------------------------------
+# Los assets no llevan hash en el nombre, así que no se pueden cachear de forma
+# agresiva: un despliegue nuevo debe verse enseguida. Una hora es el equilibrio.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 hour"
+  ExpiresByType text/javascript "access plus 1 hour"
+  ExpiresByType application/javascript "access plus 1 hour"
+  ExpiresByType image/png "access plus 1 week"
+  ExpiresByType image/jpeg "access plus 1 week"
+  # El HTML nunca se cachea: es lo que orquesta todo lo demás.
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# --- Cabeceras de seguridad ----------------------------------------------
+<IfModule mod_headers.c>
+  # No adivinar el tipo de contenido.
+  Header set X-Content-Type-Options "nosniff"
+  # No permitir que el sitio se embeba en un iframe ajeno.
+  Header set X-Frame-Options "SAMEORIGIN"
+  # No filtrar la URL completa al navegar a otro dominio.
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

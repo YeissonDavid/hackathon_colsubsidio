@@ -84,7 +84,7 @@
         resrow("Contacto", d.channel, "Con fecha cierta de retorno.")
       : resrow(
           "Producto",
-          d.isSequenced ? "Compra de cartera → Crédito Mujer" : PRODUCTS[d.product].name,
+          d.isSequenced ? "Crédito de consumo → Crédito de mujeres" : PRODUCTS[d.product].name,
           d.note || ""
         ) +
         resrow("Monto", money(d.amount), "") +
@@ -93,7 +93,8 @@
           money(d.installment) + " · " + term(d.termMonths),
           "Modalidad " + d.modality + "."
         ) +
-        resrow("Entrega", d.channel, d.contactWindowLabel);
+        resrow("Entrega", d.channel, d.contactWindowLabel) +
+        messagePreview(d);
 
     const actions = isRoute
       ? '<button class="btn btn--risk" type="button" data-act="ruta">Activar ruta de bienestar</button>' +
@@ -118,6 +119,42 @@
       '<div class="resnote">Toda resolución queda registrada con sus variables, fuentes y base jurídica.</div>' +
       "</div></div>"
     );
+  }
+
+  /**
+   * Vista previa del mensaje que recibirá el afiliado.
+   *
+   * Cierra el punto flojo de la rúbrica: el panel es para el analista, pero lo
+   * que el reto evalúa es la experiencia del afiliado. Mostrar aquí el mensaje
+   * exacto —con el canal y la hora reales que decidió el motor— vuelve tangible
+   * el resultado sin salir de la ficha.
+   */
+  function messagePreview(d) {
+    const CHANNEL_STYLE = {
+      WhatsApp: { modifier: "whatsapp", title: "Nuevo mensaje de ORIGEN", action: "Responde a este chat" },
+      "Correo electrónico": { modifier: "email", title: "Asunto: tu oferta pre-aprobada", action: "Haz clic aquí" },
+    };
+    const style = CHANNEL_STYLE[d.channel] ||
+      { modifier: "push", title: "Notificación push", action: "Haz clic aquí" };
+
+    const firstName = escapeHtml(privacyFirstName(d.affiliate.name));
+
+    return (
+      '<div class="msgpreview">' +
+      '<div class="msgpreview__label">Vista previa del mensaje</div>' +
+      '<div class="msgpreview__body">' +
+      '<span class="msgpreview__bar msgpreview__bar--' + style.modifier + '"></span>' +
+      "<div><strong>" + style.title + "</strong><br>" +
+      "<span>Hola " + firstName + ", tienes un " + PRODUCTS[d.product].name.toLowerCase() +
+      " pre-aprobado por " + money(d.amount) + ". " + style.action +
+      " para firmarlo digitalmente sin ir a una oficina.</span>" +
+      "</div></div></div>"
+    );
+  }
+
+  /** Primer nombre, respetando el enmascaramiento de PII. */
+  function privacyFirstName(fullName) {
+    return ORIGEN.ui.privacy.maskName(fullName).split(" ")[0];
   }
 
   /** Fila del panel de resolución. */

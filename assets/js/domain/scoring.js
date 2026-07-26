@@ -50,47 +50,45 @@
     add("cupo", "Necesidad puntual", 6);
     if (a.hasRuesActivity) add("cupo", "Actividad RUES", 8);
 
-    /* --- Compra de cartera: ordenar deuda costosa ----------------------- */
+    /* --- Crédito de consumo: ordenar deuda costosa ----------------------- */
     if (a.externalDebt.count >= 2) {
       // Aporte fuerte y creciente con el saldo, con premio si la tasa es alta.
       add(
-        "cartera",
+        "consumo",
         "Obligaciones externas costosas",
         44 + Math.min(a.externalDebt.balance / 1e6, 10) * 2 + (a.externalDebt.annualRate >= 27 ? 8 : 0)
       );
     }
-    if (a.intent === "consolidacion") add("cartera", "Intención de consolidar", 18);
+    if (a.intent === "consolidacion") add("consumo", "Intención de consolidar", 18);
     if (a.externalDebt.count === 1 && a.externalDebt.annualRate >= 27) {
-      add("cartera", "Obligaciones externas costosas", 24);
+      add("consumo", "Obligaciones externas costosas", 24);
     }
 
-    /* --- Hipotecario: construir patrimonio ----------------------------- */
-    if (a.lifeEvent === "vivienda") add("hipotecario", "Evento de vivienda", 40);
+    /* --- Crédito de vivienda: construir patrimonio --------------------- */
+    if (a.lifeEvent === "vivienda") add("vivienda", "Evento de vivienda", 40);
     if (a.intent === "vivienda" && a.intentIsRecent) {
-      add("hipotecario", "Evento de vivienda", 22);
+      add("vivienda", "Evento de vivienda", 22);
     }
-    if (stage === "formacion") add("hipotecario", "Capacidad por categoría", 18);
-    add("hipotecario", "Capacidad por categoría", a.category === "C" ? 15 : a.category === "B" ? 8 : 2);
-    if (a.tenureMonths > 36) add("hipotecario", "Estabilidad sostenida", 11);
+    if (stage === "formacion") add("vivienda", "Capacidad por categoría", 18);
+    add("vivienda", "Capacidad por categoría", a.category === "C" ? 15 : a.category === "B" ? 8 : 2);
+    if (a.tenureMonths > 36) add("vivienda", "Estabilidad sostenida", 11);
 
     /* --- Educativo: formación del hogar -------------------------------- */
     if (a.schoolAgeChildren > 0) add("educativo", "Hijos en edad escolar", 30);
     if (a.intent === "educacion") add("educativo", "Intención formativa", 24);
     if (a.lifeEvent === "matricula") add("educativo", "Matrícula próxima", 26);
 
-    /* --- Crédito Mujer: acompañamiento con protección ------------------ */
+    /* --- Crédito de mujeres: acompañamiento con protección ------------- */
     if (a.gender === "F") {
-      add("mujer", "Perfil de cuidado", a.children > 0 ? 20 : 8);
-      if (a.intent === "hogar") add("mujer", "Mejora del hogar", 16);
-      if (stage === "formacion" || stage === "crianza") add("mujer", "Perfil de cuidado", 12);
-      add("mujer", "Necesidad puntual", 6);
+      add("mujeres", "Perfil de cuidado", a.children > 0 ? 20 : 8);
+      if (a.intent === "hogar") add("mujeres", "Mejora del hogar", 16);
+      if (stage === "formacion" || stage === "crianza") add("mujeres", "Perfil de cuidado", 12);
+      add("mujeres", "Necesidad puntual", 6);
     }
 
-    /* --- Rotativo seguros e impuestos: estacionalidad ------------------ */
-    if (a.hasSeasonalNeed) add("seguros", "Estacionalidad", 40);
-
-    /* --- Complementario: red de seguridad del portafolio --------------- */
-    add("complementario", "Necesidad puntual", 12);
+    // Las líneas «Rotativo seguros e impuestos» y «Crédito complementario»
+    // salieron del catálogo base. La estacionalidad que activaba el rotativo
+    // se evalúa ahora en el motor avanzado (domain/advanced/deliberation.js).
 
     return aggregate(contributions);
   }

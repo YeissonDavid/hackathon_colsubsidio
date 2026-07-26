@@ -1,0 +1,489 @@
+/* ==========================================================================
+   ORIGEN · Capa 6 — Vistas del motor avanzado
+   --------------------------------------------------------------------------
+   Simulador interactivo, comparador de perfiles, laboratorio de evidencia,
+   cumplimiento del reto y arquitectura.
+
+   Se separa de views.css porque son pantallas de un motor distinto, con
+   componentes que no aparecen en el flujo operativo (conmutadores de fuente,
+   señales pesadas, mockups de cierre). Consume los mismos tokens: no declara
+   ningún color literal salvo los de marca ajena — WhatsApp y Gmail.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Barra de consulta: cédula y acción
+   -------------------------------------------------------------------------- */
+
+.querybar {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.querybar__field {
+  flex: 1 1 200px;
+}
+
+.querybar__label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.querybar__input {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+.querybar__input:focus-visible {
+  border-color: var(--info);
+}
+
+/* --------------------------------------------------------------------------
+   Consulta de fuentes, una por una
+   --------------------------------------------------------------------------
+   La secuencia hace visible que hay cinco fuentes distintas detrás, cada una
+   con su base jurídica. El cambio de estado se comunica por clase, nunca
+   escribiendo estilos desde JavaScript.
+   -------------------------------------------------------------------------- */
+
+.card__hint--block {
+  display: block;
+  margin-bottom: 12px;
+  margin-left: 0;
+}
+
+.srcprobe {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  transition: border-color var(--dur-fast), background var(--dur-fast);
+}
+
+.srcprobe--asking {
+  border-color: var(--accent);
+}
+
+.srcprobe--done {
+  border-color: rgba(46, 158, 107, 0.4);
+  background: rgba(46, 158, 107, 0.05);
+}
+
+.srcprobe__badge {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: var(--surface-3);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.srcprobe__body {
+  flex: 1;
+  font-size: 13px;
+}
+
+.srcprobe__legal {
+  margin-left: 6px;
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+.srcprobe__status {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.srcprobe--asking .srcprobe__status { color: var(--accent); }
+.srcprobe--done .srcprobe__status { color: var(--ok-bright); }
+
+/* --------------------------------------------------------------------------
+   Conmutador de fuente
+   -------------------------------------------------------------------------- */
+
+.srctoggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.srctoggle:last-of-type {
+  border-bottom: none;
+}
+
+.srctoggle__body {
+  flex: 1;
+}
+
+.srctoggle__name {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.srctoggle__name.is-off {
+  color: var(--text-muted);
+}
+
+.srctoggle__finding {
+  font-size: 11.5px;
+  color: var(--text-faint);
+}
+
+/* Interruptor accesible: en el markup es <button role="switch"> con
+   aria-checked, no un <div> con onclick. Funciona con teclado y lo anuncia un
+   lector de pantalla. */
+.switch {
+  position: relative;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 22px;
+  padding: 0;
+  border-radius: 11px;
+  background: var(--surface-3);
+  transition: background var(--dur-fast);
+}
+
+.switch--on {
+  background: var(--ok);
+}
+
+.switch__knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  transition: left var(--dur-fast);
+}
+
+.switch--on .switch__knob {
+  left: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   Etapa de vida en línea
+   -------------------------------------------------------------------------- */
+
+.stagepills {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+  overflow-x: auto;
+}
+
+.stagepill {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  white-space: nowrap;
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.stagepill--on {
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+.stagereason {
+  margin: 0 0 12px;
+  font-size: 13.5px;
+}
+
+.kpis--tight {
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.kpi--mini {
+  padding: 10px;
+}
+
+.kpi--mini .kpi__value {
+  font-size: 20px;
+}
+
+.kpi__value.is-ok { color: var(--ok); }
+.kpi__value.is-warn { color: var(--warn); }
+.kpi__value.is-risk { color: var(--risk); }
+
+/* --------------------------------------------------------------------------
+   Señales pesadas
+   -------------------------------------------------------------------------- */
+
+.signal {
+  margin-bottom: 12px;
+}
+
+.signal__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 4px;
+  font-size: 12.5px;
+}
+
+.signal__source {
+  color: var(--text-faint);
+}
+
+.signal__track {
+  overflow: hidden;
+  height: 4px;
+  border-radius: 3px;
+  background: var(--surface-3);
+}
+
+.signal__fill {
+  display: block;
+  height: 100%;
+  background: var(--info);
+}
+
+/* La señal dominante se distingue por color, no solo por posición. */
+.signal__fill--top {
+  background: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   Alternativas deliberadas
+   -------------------------------------------------------------------------- */
+
+.alttable .cell-name--best {
+  color: var(--accent);
+}
+
+.cell-sub--wrap {
+  white-space: normal;
+}
+
+.altscore {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.altscore--best {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Tarjeta de veredicto del simulador
+   -------------------------------------------------------------------------- */
+
+.simverdict {
+  margin: 4px 0 14px;
+}
+
+.simproduct {
+  margin: 4px 0 14px;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.simdci {
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.simdci.is-ok { color: var(--ok); }
+.simdci.is-warn { color: var(--warn); }
+.simdci.is-risk { color: var(--risk); }
+
+/* --------------------------------------------------------------------------
+   Mockup del cierre digital
+   -------------------------------------------------------------------------- */
+
+.closing {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.closing h4 {
+  margin: 0 0 12px;
+  font-size: 14px;
+}
+
+.closing__shots {
+  display: flex;
+  gap: 12px;
+  padding-bottom: 8px;
+  overflow-x: auto;
+}
+
+.closing__shots img {
+  height: 320px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   Vista previa del mensaje al afiliado
+   --------------------------------------------------------------------------
+   Los colores de la barra son de marca ajena (WhatsApp, Gmail): son
+   identificadores de canal, no parte del sistema de diseño, así que se
+   escriben literales y solo aquí.
+   -------------------------------------------------------------------------- */
+
+.msgpreview {
+  margin-top: 12px;
+  padding: 10px 13px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.msgpreview__label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.msgpreview__body {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.msgpreview__body span:last-child {
+  color: var(--text-muted);
+}
+
+.msgpreview__bar {
+  flex: 0 0 4px;
+  border-radius: 2px;
+}
+
+.msgpreview__bar--whatsapp { background: #25d366; }
+.msgpreview__bar--email { background: #ea4335; }
+.msgpreview__bar--push { background: var(--accent); }
+
+/* --------------------------------------------------------------------------
+   Comparador
+   -------------------------------------------------------------------------- */
+
+/* Los atributos que difieren entre los dos perfiles. Es la evidencia de que el
+   motor personaliza, así que se resalta con el color de acento. */
+.cmp-diff {
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   Laboratorio de evidencia
+   -------------------------------------------------------------------------- */
+
+.empty__note {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+}
+
+.resnote--left {
+  text-align: left;
+}
+
+.resnote--prose {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.card__body--tight {
+  padding: 14px 18px;
+}
+
+.quadrant__reading {
+  color: var(--text-muted);
+}
+
+.num.is-ok { color: var(--ok); }
+.num.is-risk { color: var(--risk); }
+.num.is-accent { color: var(--accent); font-weight: 600; }
+
+.delta {
+  font-size: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   Cumplimiento del reto
+   -------------------------------------------------------------------------- */
+
+.brief {
+  margin: 0;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.brief__image {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin-top: 16px;
+  border-radius: 12px;
+}
+
+.objective {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.objective__lead {
+  color: var(--text);
+}
+
+.objective__lead--accent { color: var(--accent); }
+.objective__lead--info { color: var(--info-bright); }
+.objective__lead--ok { color: var(--ok-bright); }
+.objective__lead--lifestage { color: var(--lifestage); }
+
+.objective__where {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+}
+
+/* --------------------------------------------------------------------------
+   Arquitectura
+   -------------------------------------------------------------------------- */
+
+.archdiagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

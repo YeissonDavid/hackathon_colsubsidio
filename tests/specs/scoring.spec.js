@@ -12,8 +12,8 @@
   const { PRODUCT_ORDER } = ORIGEN.core.catalog;
 
   describe("Scorer aditivo", function () {
-    it("evalúa las siete líneas del portafolio", function () {
-      expect(PRODUCT_ORDER.length).toBe(7);
+    it("evalúa las cinco líneas del portafolio", function () {
+      expect(PRODUCT_ORDER.length).toBe(5);
     });
 
     it("el total de cada producto es la suma exacta de sus aportes", function () {
@@ -32,7 +32,7 @@
         });
       });
 
-      expect(checked).toBe(decisions.length * 7);
+      expect(checked).toBe(decisions.length * 5);
     });
 
     it("el ranking va de mayor a menor puntaje", function () {
@@ -47,14 +47,14 @@
     });
 
     it("reproduce el caso de María del documento maestro", function () {
-      // Documento maestro, «Así piensa ORIGEN»: compra de cartera 65,
-      // Crédito Mujer 54, cupo rotativo 52, hipotecario 37.
+      // Documento maestro, «Así piensa ORIGEN»: 65 / 54 / 52 / 37. Los
+      // nombres cambiaron con el catálogo de 5 líneas, los puntajes no.
       const maria = ORIGEN.domain.dataset.build()[0];
       const top = maria.ranking.slice(0, 4).map(function (entry) {
         return entry.product + ":" + entry.sum;
       });
 
-      expect(top).toEqual(["cartera:65", "mujer:54", "cupo:52", "hipotecario:37"]);
+      expect(top).toEqual(["consumo:65", "mujeres:54", "cupo:52", "vivienda:37"]);
       expect(maria.ranking[0].sum - maria.ranking[1].sum).toBe(
         11,
         "el documento maestro dice que gana por 11 puntos"
@@ -75,7 +75,7 @@
       });
     });
 
-    it("un afiliado con deuda externa costosa puntúa compra de cartera por encima de todo", function () {
+    it("un afiliado con deuda externa costosa prioriza el crédito de consumo", function () {
       const decisions = ORIGEN.domain.dataset.build();
       const withCostlyDebt = decisions.filter(function (d) {
         return d.affiliate.externalDebt.count >= 3 && d.affiliate.externalDebt.annualRate >= 27;
@@ -88,8 +88,8 @@
 
       withCostlyDebt.forEach(function (d) {
         expect(d.product).toBe(
-          "cartera",
-          d.affiliate.id + " tiene deuda externa costosa y debería priorizar cartera"
+          "consumo",
+          d.affiliate.id + " tiene deuda externa costosa y debería priorizar consumo"
         );
       });
     });

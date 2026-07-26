@@ -25,7 +25,7 @@
    * @param {object} ctx.affiliate
    * @param {string} ctx.product
    * @param {string} ctx.verdict
-   * @param {boolean} ctx.isSequenced Cartera primero y luego otro producto.
+   * @param {boolean} ctx.isSequenced Consumo primero y luego otro producto.
    * @param {number} ctx.freedCashFlow Flujo mensual liberado, si sustituye deuda.
    * @returns {string}
    */
@@ -57,14 +57,14 @@
     }
 
     // --- Razón por producto ----------------------------------------------
-    if (ctx.product === "cartera") {
+    if (ctx.product === "consumo") {
       return (
         "Se detectaron " + debt.count + " obligación(es) externa(s) al " + debt.annualRate +
         "% E.A. Sustituirlas por una sola cuota libera " + money(ctx.freedCashFlow) + " al mes."
       );
     }
 
-    if (ctx.product === "mujer") {
+    if (ctx.product === "mujeres") {
       const years = Math.max(1, Math.round(a.tenureMonths / 12));
       return (
         "Lleva cerca de " + years + " año(s) de afiliación y su momento de vida requiere " +
@@ -72,7 +72,7 @@
       );
     }
 
-    if (ctx.product === "hipotecario") {
+    if (ctx.product === "vivienda") {
       return (
         "Su estabilidad y momento de vida permiten construir patrimonio con una cuota " +
         "sostenible en el largo plazo."
@@ -129,7 +129,7 @@
 
     if (ctx.isSequenced) {
       return (
-        "<strong>Otorgar ahora en secuencia</strong> — cartera primero — supera por " +
+        "<strong>Otorgar ahora en secuencia</strong> — consumo primero — supera por " +
         ctx.margin + " puntos a las demás rutas: ordenar la deuda costosa libera capacidad " +
         "y hace sostenible el crédito siguiente."
       );

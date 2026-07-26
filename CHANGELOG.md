@@ -1,5 +1,45 @@
 # Registro de cambios
 
+## [5.1.0] — 26 de julio de 2026
+
+Integración de los 12 commits de `origin/main` en la estructura modular. **Nada
+del trabajo previo se perdió**, y el port se verificó comparando las 220
+decisiones contra el motor de `origin/main`: idénticas.
+
+### Añadido — traído de `origin/main` y modularizado
+
+- **Motor avanzado** en `assets/js/domain/advanced/` (8 módulos): consulta por
+  cédula con determinismo por hash, cinco fuentes exógenas conmutables, etapa de
+  vida con su política, ventana temporal, deliberación con motivo de descarte,
+  índice de confianza (DCI) y redacción del mensaje.
+- **Laboratorio de evidencia** en `assets/js/domain/lab.js`: backtest contra
+  verdad conocida, cuatro cuadrantes de impacto, equidad por género/edad/ingreso
+  y estudio de ablación por fuente.
+- **Cinco vistas nuevas**: simulador interactivo, comparador de perfiles,
+  laboratorio de evidencia, cumplimiento del reto y arquitectura.
+- **Miniatura del mensaje al afiliado** en la ficha, con el canal y la hora que
+  decidió el motor, y respetando el enmascaramiento de PII.
+- **Mockup de cierre digital** (3 capturas) en el simulador.
+- **Monto colocable por determinación** en el procesamiento por lote.
+- Capa `assets/css/advanced.css` y carpeta `assets/img/`.
+- 24 pruebas nuevas (`tests/specs/advanced.spec.js`): 51 → **75**.
+
+### Cambiado
+
+- **Catálogo base de 7 a 5 líneas**: Cupo de crédito, Crédito de consumo,
+  Crédito de vivienda, Crédito de mujeres, Crédito educativo. `cartera` pasa a
+  `consumo`, `hipotecario` a `vivienda`, `mujer` a `mujeres`; se retiran el
+  rotativo de seguros y el complementario.
+- El motor base deja de bonificar la estacionalidad en el escenario «esperar»,
+  igual que `origin/main`. Se detectó comparando las 220 decisiones: era la única
+  divergencia.
+- `advanced/profile.js` memoiza los perfiles (función pura, resultado idéntico):
+  el Laboratorio pasa de 7,1 s a 4,3 s con 2.000 afiliados.
+- Los conmutadores de fuente son `<button role="switch">` con `aria-checked`, no
+  `<div>` con `onclick`: funcionan con teclado y los anuncia un lector de pantalla.
+- Las imágenes se mueven de la raíz a `assets/img/`.
+
+
 ## [5.0.0] — 26 de julio de 2026
 
 Reestructuración completa de la base de código. **El comportamiento del motor no

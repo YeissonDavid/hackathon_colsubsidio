@@ -60,8 +60,8 @@
 
     // --- Otorgar hoy ---
     let now = 57 + headroom * 24 - stress * 30 - (unstable ? 12 : 0);
-    if (product === "cartera") {
-      // La compra de cartera mejora el bienestar precisamente porque hay deuda
+    if (product === "consumo") {
+      // El crédito de consumo mejora el bienestar precisamente porque hay deuda
       // costosa que sustituir: cuanto más pesa, más ayuda ordenarla.
       now += 18 + externalBurden * 12;
     } else {
@@ -75,11 +75,13 @@
     // vale la pena; con margen holgado, esperar solo aplaza el beneficio.
     let wait = now + (a.internalObligations >= 1 && headroom < 0.5 ? 14 : -7);
     if (product === "educativo" && a.lifeEvent !== "matricula") wait += 12;
-    if (a.hasSeasonalNeed) wait += 6;
+    // La estacionalidad ya no bonifica la espera: desapareció con la línea
+    // «Rotativo seguros e impuestos» del catálogo base. `hasSeasonalNeed` sigue
+    // generándose y lo consume el motor avanzado (domain/advanced/).
 
     // --- No otorgar y acompañar ---
     let route =
-      34 + stress * 46 + (unstable ? 18 : 0) - headroom * 14 - (product === "cartera" ? 4 : 0);
+      34 + stress * 46 + (unstable ? 18 : 0) - headroom * 14 - (product === "consumo" ? 4 : 0);
 
     // Situación severa: prestar en cualquier forma empeora el pronóstico.
     const severe = blocked || a.currentLoad > ORIGEN.config.SEVERE_LOAD || a.tenureMonths < minTenure;
@@ -109,7 +111,7 @@
    * porque sustituye una cuota que ya existía.
    */
   function nowSeries(start, end, product) {
-    const dipDepth = product === "cartera" ? 3.5 : 9;
+    const dipDepth = product === "consumo" ? 3.5 : 9;
     const series = [];
 
     for (let month = 0; month <= HORIZON; month++) {

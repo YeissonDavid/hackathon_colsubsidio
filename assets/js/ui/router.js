@@ -21,6 +21,11 @@
     lote: function (container) { ORIGEN.ui.views.batch.render(container); },
     portafolio: function (container) { ORIGEN.ui.views.portfolio.render(container); },
     fuentes: function (container) { ORIGEN.ui.views.sources.render(container); },
+    simulador: function (container) { ORIGEN.ui.views.simulator.render(container); },
+    comparador: function (container) { ORIGEN.ui.views.comparator.render(container); },
+    laboratorio: function (container) { ORIGEN.ui.views.lab.render(container); },
+    reto: function (container) { ORIGEN.ui.views.challenge.render(container); },
+    arquitectura: function (container) { ORIGEN.ui.views.architecture.render(container); },
   };
 
   /** Ruta activa: una clave de ROUTES o "ficha". */

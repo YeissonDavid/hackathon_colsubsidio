@@ -6,7 +6,7 @@
 
 ORIGEN es un copiloto para los analistas de crédito de Colsubsidio. Recibe una
 cédula —o un lote—, enriquece el perfil con variables autorizadas, evalúa las
-siete líneas del portafolio, proyecta el bienestar del afiliado a doce meses y
+cinco líneas del portafolio, proyecta el bienestar del afiliado a doce meses y
 recomienda **una** decisión: un producto, un producto con condiciones, o una
 Ruta de Bienestar cuando prestar no conviene.
 
@@ -27,7 +27,7 @@ Eso es todo. Funciona en Chrome, Edge, Firefox y Safari.
 
 | Archivo | Qué es |
 |---|---|
-| **`index.html`** | La Estación de Decisión — la aplicación |
+| **`index.html`** | La Estación de Decisión — la aplicación, 9 vistas |
 | `pitch.html` | Landing conceptual de la propuesta |
 | `tests/index.html` | Las pruebas del motor: doble clic y se ejecutan |
 
@@ -39,21 +39,28 @@ Doble clic en `tests/index.html`, o en consola:
 node tests/run-node.js
 ```
 
-51 pruebas sobre determinismo, política de capacidad, scorer, proyección,
-enmascaramiento de PII y formato. Salen en verde o el motor está roto.
+75 pruebas sobre determinismo, política de capacidad, scorer, proyección,
+enmascaramiento de PII, formato, motor avanzado y laboratorio de evidencia.
+Salen en verde o el motor está roto.
 
 ---
 
 ## Qué lo hace distinto
 
-**Delibera, no clasifica.** Antes de recomendar, puntúa las siete líneas y
-muestra el ranking completo — incluido lo que quedó segundo y por cuánto perdió.
+**Delibera, no clasifica.** Antes de recomendar, puntúa las cinco líneas del
+portafolio y muestra el ranking completo — incluido lo que quedó segundo y por
+cuánto perdió. En el motor avanzado, cada producto descartado explica por qué.
 
 **Caja de cristal, no caja negra.** El puntaje es una suma de aportes nombrados
 y trazables. Un auditor puede sumar las barras a mano y obtener el número que
 muestra la pantalla; hay una prueba automática que lo verifica en los 220
 perfiles. Ningún modelo estocástico decide si se otorga crédito: ante la
 Superintendencia Financiera eso no sería defendible.
+
+**Mide su propio valor.** El Laboratorio de Evidencia corre un backtest sobre
+población sintética con verdad conocida y compara ORIGEN contra el proceso
+tradicional: cuánta mora evita, a cuántos incluye sin riesgo, y cuánto empeora
+la cartera al apagar cada fuente exógena. No es una promesa, es un número.
 
 **Sabe decir «hoy no».** Proyecta tres caminos —otorgar, esperar, acompañar— y
 gana el que deja mejor al afiliado. La Ruta de Bienestar no es una excepción
@@ -83,15 +90,20 @@ avance.md               Registro de avance del equipo
 
 assets/
   brand/                Logos, favicon y paleta oficial
-  css/                  5 capas: tokens → base → layout → components → views
+  img/                  Diagrama de arquitectura, mockups y lámina del reto
+  css/                  6 capas: tokens → base → layout → components → views
+                        → advanced
   js/
     core/               Configuración, aleatoriedad sembrada, formato, catálogo
-    domain/             El motor: momento de vida, scoring, capacidad,
+    domain/             Motor base: momento de vida, scoring, capacidad,
                         proyección, narrativa, decisión
+      advanced/         Motor avanzado: consulta por cédula con fuentes
+                        exógenas conmutables
+      lab.js            Laboratorio de evidencia (backtest)
     ui/                 DOM, privacidad, gráficos, vistas, enrutador
     main.js             Arranque
 
-tests/                  Ejecutor propio + 6 especificaciones
+tests/                  Ejecutor propio + 7 especificaciones (75 pruebas)
 docs/
   ARCHITECTURE.md       Cómo está construido y por qué
   MEJORAS.md            Deuda técnica y decisiones pendientes ← empieza aquí

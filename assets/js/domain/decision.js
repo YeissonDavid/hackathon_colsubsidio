@@ -72,13 +72,13 @@
   function selectChannel(affiliate, product, verdict) {
     if (verdict === "no_viable") return "Asesor humano";
     if (affiliate.age > SENIOR_AGE) return "WhatsApp";
-    if (product === "hipotecario" || product === "educativo") return "Correo electrónico";
+    if (product === "vivienda" || product === "educativo") return "Correo electrónico";
     if (affiliate.intentIsRecent) return "Notificación push";
     return "WhatsApp";
   }
 
   /**
-   * ¿Debe la resolución ejecutarse en secuencia —cartera primero, objetivo
+   * ¿Debe la resolución ejecutarse en secuencia —consumo primero, objetivo
    * después— en lugar de como una sola operación?
    *
    * Se reserva para el caso en que ordenar la deuda es condición para que el
@@ -86,7 +86,7 @@
    */
   function needsSequencing(affiliate, product, verdict) {
     return (
-      product === "cartera" &&
+      product === "consumo" &&
       affiliate.gender === "F" &&
       (affiliate.lifeStage === "formacion" || affiliate.lifeStage === "crianza") &&
       verdict !== "no_viable"
@@ -121,8 +121,10 @@
     // 1. Cuánto espacio de cuota permite su momento de vida.
     const headroomInfo = capacity.assessHeadroom(affiliate);
 
-    // 2. Deliberación sobre las siete líneas.
-    const { best: product, totals } = scoring.scoreProducts(affiliate);
+    // 2. Deliberación sobre las cinco líneas del portafolio.
+    const scored = scoring.scoreProducts(affiliate);
+    const totals = scored.totals;
+    const product = scored.best || ORIGEN.core.catalog.FALLBACK_PRODUCT;
     const ranking = scoring.rankPortfolio(totals);
 
     // 3. Dimensionamiento y verificación de política.

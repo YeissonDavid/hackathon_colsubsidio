@@ -43,13 +43,13 @@ expresiones regulares no es un flujo de trabajo, es una fuente de defectos.
 ### 1.2 El resultado
 
 ```
-index.html         179 líneas   solo markup semántico
-assets/css/      2.066 líneas   5 capas
-assets/js/       3.708 líneas   27 módulos (core, domain, ui)
-tests/             818 líneas   ejecutor propio + 6 especificaciones
+index.html         200 líneas   solo markup semántico, 9 vistas
+assets/css/      2.560 líneas   6 capas
+assets/js/       6.000 líneas   41 módulos (core, domain, advanced, ui)
+tests/           1.100 líneas   ejecutor propio + 7 especificaciones (75 pruebas)
 ```
 
-Ningún archivo pasa de 330 líneas. Cada uno declara sus dependencias en la
+Ningún archivo pasa de 340 líneas. Cada uno declara sus dependencias en la
 cabecera y explica **por qué** hace lo que hace.
 
 ### 1.3 Verificación de que no se rompió nada
@@ -71,36 +71,43 @@ El refactor es demostrablemente neutro. Puedes afirmarlo ante el jurado.
 Esto **no** lo he cambiado: son decisiones de producto, no de programación. Pero
 son contradicciones visibles y un jurado atento puede encontrarlas.
 
-### 2.1 El catálogo de productos tiene dos versiones en conflicto
+### 2.1 Tres catálogos de productos conviven (parcialmente resuelto)
 
-| Fuente | Catálogo |
+El equipo ya cerró el catálogo base: **5 líneas** —Cupo de crédito, Crédito de
+consumo, Crédito de vivienda, Crédito de mujeres, Crédito educativo—. Eso
+resolvió las dos contradicciones anteriores: «Compra de cartera» pasó a ser
+«Crédito de consumo», el hipotecario a «vivienda», y desaparecieron el rotativo
+de seguros y el complementario.
+
+Queda una inconsistencia menor, pero visible: **el motor avanzado delibera sobre
+un catálogo distinto**, con nombres largos y dos líneas que el base no tiene:
+
+| Motor base (5) | Motor avanzado (7 alternativas) |
 |---|---|
-| `ORIGEN documento maestro.docx` y el código | Cupo rotativo · Compra de cartera · Hipotecario · Educativo · **Crédito Mujer** · Rotativo seguros · Complementario |
-| `avance.md` (23-jul-2026) | Hipotecario · **Consumo general** (absorbe Crédito Mujer) · **Libre Inversión** · Educativo · Rotativo cupo · Rotativo seguros · Compra de cartera |
+| Cupo de crédito | Cupo de crédito **rotativo** |
+| Crédito de consumo | Crédito de consumo |
+| Crédito de **vivienda** | Crédito **hipotecario** |
+| Crédito de mujeres | Crédito de mujeres |
+| Crédito educativo | Crédito educativo |
+| — | Rotativo para seguros e impuestos |
+| — | Ruta de fortalecimiento |
 
-Los dos hablan de «7 líneas», pero no son las mismas siete. `avance.md` es
-posterior y dice explícitamente que Crédito Mujer se fundió en Consumo general —
-el código sigue el documento maestro y mantiene Crédito Mujer como línea propia.
+Si el jurado pasa de la Bandeja al Simulador, ve «Crédito de vivienda» en una
+pantalla e «Crédito hipotecario» en la otra para el mismo concepto. Unificar los
+rótulos cuesta poco y elimina la duda.
 
-**Hay que elegir una**, y la elegida debe aparecer igual en el código, en el
-documento maestro, en `SPEC.md` y en el pitch. Si el jurado ve dos catálogos
-distintos, la propuesta pierde credibilidad justo en el punto que más cuidaste.
+Dónde tocar: `assets/js/core/catalog.js` (motor base) y
+`assets/js/domain/advanced/{deliberation,lifestage}.js` (motor avanzado).
 
-Dónde tocar si cambias: `assets/js/core/catalog.js` (`PRODUCTS` y
-`PORTFOLIO_RULES`) y las reglas de `assets/js/domain/scoring.js`.
+### 2.2 El producto que nunca ganaba ya no existe (resuelto)
 
-### 2.2 Un producto nunca puede ganar
+`Crédito complementario` recibía siempre 12 puntos fijos y no ganaba en ninguno
+de los 220 perfiles. Salió del catálogo, así que el hueco está cerrado.
 
-`Crédito complementario` recibe siempre exactamente 12 puntos («Necesidad
-puntual») y nada más. En los 220 perfiles **no gana ni una sola vez**: cualquier
-otro producto con señal lo supera.
-
-Es el mismo hueco que `avance.md` ya identificó para otras líneas. No es un
-error: es una línea del catálogo sin señal mapeada. Pero si te preguntan «¿y este
-producto cuándo se recomienda?», la respuesta honesta hoy es «nunca».
-
-Dos salidas: darle una señal propia, o declararlo explícitamente como línea de
-reserva en la vista de portafolio.
+Efecto colateral que conviene conocer: al retirar el rotativo de seguros, el
+motor base también dejó de bonificar la estacionalidad en el escenario
+«esperar». El campo `hasSeasonalNeed` se sigue generando y solo lo consume el
+motor avanzado.
 
 ### 2.3 Los perfiles demo no coinciden con el documento maestro
 
@@ -114,7 +121,7 @@ El caso de Ana cambia de género y el de Carlos pierde 19 años. Si muestras el
 documento y después la demo, los nombres y las edades no cuadran.
 
 Lo bueno: **el ranking de María sí coincide exactamente** con el del documento
-maestro —cartera 65, Crédito Mujer 54, cupo 52, hipotecario 37, gana por 11
+maestro —consumo 65, mujeres 54, cupo 52, vivienda 37, gana por 11
 puntos—. Eso está verificado con una prueba automática
 (`tests/specs/scoring.spec.js`), así que puedes proyectar el documento y la
 pantalla lado a lado con total confianza en las cifras. Solo hay que unificar
@@ -251,9 +258,17 @@ serán entrada externa. Ahora **todo** valor procedente de datos pasa por
 
 ### 4.1 El SMMLV está fijado a mano
 
-`core/config.js` declara `SMMLV: 1500000`. De ese número dependen los umbrales de
-las categorías A, B y C, y por tanto el ingreso de toda la población sintética y
-el tope de libranza.
+**Los dos motores usan valores distintos**, y esto sí es un defecto:
+
+| Motor | Archivo | Valor |
+|---|---|---|
+| Base | `core/config.js` | `SMMLV: 1500000` |
+| Avanzado | `domain/advanced/sources.js` | `SMMLV = 1423500` |
+
+De ese número dependen los umbrales de las categorías A, B y C, el ingreso de
+toda la población sintética, el tope de libranza y los grupos de equidad del
+Laboratorio. Con dos valores, la misma persona cae en categorías distintas según
+la pantalla.
 
 **Hay que confirmarlo contra el decreto vigente.** Está marcado como
 `PENDIENTE DE CALIBRAR` en el código. Si el valor es incorrecto, la distribución
@@ -296,7 +311,7 @@ Está documentado en la cabecera de `projection.js`, pero conviene decirlo en vo
 alta en el pitch antes de que lo pregunten: presentarlo como métrica absoluta
 sería sobrevender.
 
-### 4.5 Las 27 etiquetas `<script>` son una lista que hay que mantener a mano
+### 4.5 Las 41 etiquetas `<script>` son una lista que hay que mantener a mano
 
 Es el precio de no tener bundler. El orden está comentado y agrupado por capas,
 pero si añades un archivo y lo pones en el sitio equivocado, falla en tiempo de
@@ -306,12 +321,25 @@ Mitigación cuando deje de hacer falta el doble clic: migrar a ES Modules. La
 conversión es mecánica y está descrita en
 [`ARCHITECTURE.md §6`](ARCHITECTURE.md).
 
+### 4.6 El Laboratorio bloquea la pestaña
+
+El backtest corre en el hilo principal. Con la memoización añadida, 2.000
+afiliados tardan ~4,3 s; el botón de 20.000 deja la pestaña insensible unos
+segundos. Está declarado en la propia interfaz («la pestaña puede quedar
+insensible»), pero si el jurado lo pulsa en medio de la demo la sensación es de
+cuelgue.
+
+Dos salidas, en orden de esfuerzo: bajar el máximo ofrecido a 5.000, o mover
+`domain/lab.js` a un Web Worker. El módulo no toca el DOM, así que la segunda es
+mecánica — es exactamente el beneficio de haber separado dominio y presentación.
+
 ---
 
 ## 5. Qué no está probado
 
-Las 51 pruebas cubren el motor: determinismo, política de capacidad, scorer,
-proyección, ventana de contacto, privacidad y formato.
+Las 75 pruebas cubren los dos motores: determinismo (por semilla y por hash),
+política de capacidad, scorer, proyección, ventana de contacto, privacidad,
+formato, valor de las fuentes exógenas y los invariantes del Laboratorio.
 
 **No cubren el renderizado.** No hay pruebas de que un clic abra la ficha
 correcta, de que el filtro filtre, o de que el gráfico dibuje. Eso exige un
@@ -336,16 +364,60 @@ Priorizado por impacto en la evaluación dividido por esfuerzo:
 | # | Qué | Por qué | Esfuerzo |
 |---|---|---|---|
 | 1 | Unificar el nombre: ORIGEN o Kepler (§2.4) | Un jurado no debe dudar de qué evalúa | 30 min |
-| 2 | Unificar el catálogo de productos (§2.1) | Contradicción visible entre tus propios documentos | 1 h |
-| 3 | Alinear nombres y edades de los perfiles demo (§2.3) | El documento y la demo deben cuadrar en pantalla | 20 min |
-| 4 | Confirmar el SMMLV (§4.1) | Un dato de negocio incorrecto se detecta al instante | 10 min |
-| 5 | Mockup del WhatsApp de María | Cierra el punto flojo de la rúbrica: la experiencia del afiliado | 2 h |
+| 2 | Unificar el SMMLV entre los dos motores (§4.1) | Hoy la misma persona cae en categorías distintas según la pantalla | 15 min |
+| 3 | Unificar rótulos de producto entre motores (§2.1) | «Vivienda» en una pantalla e «hipotecario» en otra | 30 min |
+| 4 | Alinear nombres y edades de los perfiles demo (§2.3) | El documento y la demo deben cuadrar en pantalla | 20 min |
+| 5 | Bajar el máximo del Laboratorio a 5.000 (§4.6) | Evita la sensación de cuelgue en vivo | 5 min |
 | 6 | Tipografías en local (§4.3) | Hace literal la afirmación de cero dependencias | 10 min |
-| 7 | Decidir qué hacer con Crédito complementario (§2.2) | Evita una pregunta incómoda | 30 min |
 
-Los puntos 1 a 4 son de coherencia y cuestan poco más de dos horas entre todos.
-El punto 5 es el único que añade material nuevo, y es el que más sube la nota en
-la rúbrica de experiencia de usuario.
+Todo suma menos de dos horas y es puro cierre de coherencia: no hay que
+construir nada nuevo. El mockup de WhatsApp —que en la versión anterior de este
+informe era la prioridad— ya está hecho: llegó en `origin/main` y ahora vive en
+la miniatura de la ficha y en el mockup de cierre del simulador.
+
+---
+
+## 6 bis. La integración con `origin/main`
+
+El refactor se hizo sobre `edd36b4`, y mientras tanto en `origin/main` habían
+entrado **12 commits** que reescribieron `index.html` (+752 líneas). Un push
+directo habría borrado trabajo real. Lo que se hizo en su lugar:
+
+1. El refactor se aisló en la rama `refactor/estructura-modular`.
+2. Se hizo `merge` de `origin/main`. Solo `index.html` entró en conflicto; las
+   cinco imágenes nuevas se integraron solas.
+3. El conflicto se resolvió conservando la estructura modular y **portando a
+   módulos todo lo que había en `origin/main`**:
+
+| Traído de `origin/main` | Dónde vive ahora |
+|---|---|
+| Motor avanzado (`decidirAvanzado`, `enriquecer`, `deliberar`, `viabilidad`, `ventana`, `entrega`, `redactar`, `confianza`) | `assets/js/domain/advanced/` (8 módulos) |
+| Laboratorio (`verdad`, `lineaBase`, `correrLab`) | `assets/js/domain/lab.js` |
+| Simulador interactivo | `assets/js/ui/views/simulator.js` |
+| Comparador de perfiles | `assets/js/ui/views/comparator.js` |
+| Laboratorio de evidencia | `assets/js/ui/views/lab.js` |
+| Cumplimiento del reto | `assets/js/ui/views/challenge.js` |
+| Arquitectura | `assets/js/ui/views/architecture.js` |
+| Miniatura del mensaje al afiliado | `ui/views/affiliate.js` · `messagePreview()` |
+| Monto por determinación en el lote | `ui/views/batch.js` |
+| Catálogo de 5 productos | `core/catalog.js` |
+| `arq.jpeg`, `cierre_1-3.png`, `reto_referencia.jpg` | `assets/img/` |
+
+**Verificación de que el port es fiel:** se extrajo el motor de
+`origin/main:index.html`, se ejecutó en Node y se comparó con el motor
+modularizado perfil por perfil. **220 de 220 decisiones idénticas** en producto,
+veredicto, monto, cuota, confianza, canal, ventana, puntaje y los tres puntos de
+la proyección.
+
+Durante la comparación apareció una diferencia real —`origin/main` había quitado
+el bonus de +6 por estacionalidad en el escenario «esperar»— y se alineó. Sin la
+comparación automática habría pasado inadvertida.
+
+Mejora añadida en el camino: `advanced/profile.js` memoiza los perfiles. Es una
+función pura, así que el resultado no cambia, pero el Laboratorio pasó de 7,1 s
+a 4,3 s con 2.000 afiliados. Aun así, el botón de 20.000 deja la pestaña
+insensible unos segundos: está declarado en la propia interfaz, y la salida
+definitiva sería un Web Worker.
 
 ---
 

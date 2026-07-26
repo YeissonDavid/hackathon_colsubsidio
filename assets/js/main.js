@@ -105,6 +105,37 @@
       ORIGEN.ui.toast.show(result.title, result.detail, result.isRisk);
     });
 
+    // Simulador: analizar, cargar demo y conmutar fuentes.
+    delegate(view, "click", "[data-sim]", function (event, button) {
+      if (button.dataset.sim === "run") ORIGEN.ui.views.simulator.submit();
+    });
+
+    delegate(view, "keydown", "#sim-id", function (event) {
+      if (event.key === "Enter") ORIGEN.ui.views.simulator.submit();
+    });
+
+    delegate(view, "click", "[data-sim-demo]", function (event, button) {
+      ORIGEN.ui.views.simulator.demo(button.dataset.simDemo);
+    });
+
+    delegate(view, "click", "[data-sim-toggle]", function (event, button) {
+      ORIGEN.ui.views.simulator.toggleSource(button.dataset.simToggle);
+    });
+
+    // Comparador.
+    delegate(view, "click", "[data-cmp]", function () {
+      ORIGEN.ui.views.comparator.compare();
+    });
+
+    delegate(view, "keydown", "#cmp-a, #cmp-b", function (event) {
+      if (event.key === "Enter") ORIGEN.ui.views.comparator.compare();
+    });
+
+    // Laboratorio.
+    delegate(view, "click", "[data-lab]", function (event, button) {
+      ORIGEN.ui.views.lab.run(Number(button.dataset.lab));
+    });
+
     // Acciones de vista que solo confirman con un aviso.
     delegate(view, "click", "[data-action]", function (event, button) {
       const { toast } = ORIGEN.ui;

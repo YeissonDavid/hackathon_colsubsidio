@@ -89,7 +89,7 @@
   /**
    * Dimensiona la operación para un producto dado.
    *
-   * La compra de cartera es el único caso en que la capacidad crece: al
+   * El crédito de consumo es el único caso en que la capacidad crece: al
    * sustituir la obligación externa, su cuota deja de competir por el ingreso y
    * se suma al espacio disponible. Los demás productos solo pueden usar lo que
    * está libre hoy.
@@ -111,7 +111,7 @@
     const factor = annuityFactor(monthlyRate, periods);
 
     const capacity =
-      product === "cartera"
+      product === "consumo"
         ? headroomInfo.availableInstallment + externalPayment
         : headroomInfo.availableInstallment;
 
@@ -119,7 +119,7 @@
     const installment = amount > 0 ? amount / factor : 0;
 
     // ¿La operación sustituye la deuda externa en lugar de sumarse a ella?
-    const substitutes = product === "cartera" && externalPayment > 0 && amount > 0;
+    const substitutes = product === "consumo" && externalPayment > 0 && amount > 0;
     const freedCashFlow = substitutes ? Math.max(0, externalPayment - installment) : 0;
 
     const finalLoad = substitutes

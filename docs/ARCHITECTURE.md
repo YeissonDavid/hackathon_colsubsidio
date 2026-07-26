@@ -39,11 +39,17 @@ El resto de decisiones se derivan de ahí.
 │    router  main  views/*  blocks  charts  toast         │
 │    privacy  dom                                         │
 ├─────────────────────────────────────────────────────────┤
-│  domain/             el motor de deliberación           │
+│  domain/             dos motores de deliberación        │
+│   base:                                                 │
 │    dataset ← decision ← { scoring, capacity,            │
 │                          projection, narrative }        │
 │                        ← { population, lifestage,       │
 │                            engagement }                 │
+│   advanced/:                                            │
+│    engine ← { profile, lifestage, policy,               │
+│               deliberation, delivery } ← { hash,        │
+│                                            sources }    │
+│    lab ← advanced/engine                                │
 ├─────────────────────────────────────────────────────────┤
 │  core/               utilidades sin dominio             │
 │    config  math  random  format  catalog  namespace     │
@@ -86,8 +92,11 @@ Dos consecuencias importantes de este orden:
 ### Explicabilidad como invariante
 
 El puntaje de cada producto es literalmente la suma de sus aportes. No es una
-aspiración: `tests/specs/scoring.spec.js` lo comprueba en los 7 productos × 220
-perfiles = 1.540 verificaciones por ejecución.
+aspiración: `tests/specs/scoring.spec.js` lo comprueba en los 5 productos × 220
+perfiles = 1.100 verificaciones por ejecución.
+
+En el motor avanzado la exigencia es aún mayor: cada producto descartado debe
+declarar su motivo, y hay una prueba que lo verifica sobre 60 cédulas.
 
 ### Determinismo
 
@@ -103,9 +112,36 @@ implicados, y hay pruebas que fallan si se rompe.
 
 ---
 
+## 3 bis. Dos motores, y por qué
+
+El proyecto tiene dos motores de decisión que no comparten código:
+
+| | Motor base (`domain/`) | Motor avanzado (`domain/advanced/`) |
+|---|---|---|
+| **Entrada** | Población pregenerada de 220 | Una cédula cualquiera |
+| **Determinismo** | Semilla + orden de llamadas | Hash de la cédula por atributo |
+| **Fuentes** | Fijas | Conmutables una por una |
+| **Veredictos** | 4 | 4, incluido «mejor momento después» |
+| **Descartes** | Puntaje 0 | Motivo nombrado |
+| **Sirve a** | Bandeja, lote, ficha | Simulador, comparador, laboratorio |
+
+La diferencia de determinismo es la interesante. El motor base depende del ORDEN
+de consumo: mover una llamada aleatoria desplaza toda la población. El avanzado
+deriva cada atributo de `hash(cédula, atributo)`, así que cada valor es
+independiente — se puede añadir un atributo nuevo sin alterar ninguno de los
+existentes, y cualquier cédula que escriba el jurado da un perfil estable.
+
+Que existan los dos es una consecuencia de cómo creció el proyecto, no un
+diseño deliberado. Comparten los topes de cuota por etapa de vida pero los
+declaran por separado, y **usan valores de SMMLV distintos** — ver
+[`MEJORAS.md §4.1`](MEJORAS.md). Unificarlos es trabajo pendiente; hacerlo
+antes del pitch no es obligatorio, pero saberlo sí.
+
+---
+
 ## 4. Estilos
 
-Cinco capas en cascada, cada una solo puede depender de las anteriores:
+Seis capas en cascada, cada una solo puede depender de las anteriores:
 
 | Capa | Archivo | Contenido |
 |---|---|---|
@@ -114,6 +150,7 @@ Cinco capas en cascada, cada una solo puede depender de las anteriores:
 | 3 | `layout.css` | Armazón persistente: barra lateral, superior, contenido |
 | 4 | `components.css` | Piezas reutilizables: botones, tarjetas, tablas, KPI |
 | 5 | `views.css` | Anatomía de pantallas concretas |
+| 6 | `advanced.css` | Vistas del motor avanzado |
 
 Ninguna hoja fuera de `tokens.css` declara un color literal, y **ningún archivo
 JavaScript conoce un hexadecimal**: el catálogo de señales guarda referencias
@@ -190,6 +227,10 @@ Un solo símbolo global, sin fugas de variables internas, con las dependencias
 declaradas en la cabecera de cada archivo. **El orden de las etiquetas `<script>`
 en `index.html` es el grafo de dependencias**, y está comentado ahí.
 
+Son 41 etiquetas: es el precio de no tener bundler. Están agrupadas por capa y
+comentadas, pero mantener el orden a mano es una tarea humana — ver
+[`MEJORAS.md §4.5`](MEJORAS.md).
+
 Es equivalente a módulos, con una diferencia: el orden lo garantiza una persona
 en lugar del cargador. Si añades un archivo, colócalo después de todo lo que
 consume.
@@ -200,7 +241,7 @@ Cuando el proyecto deje de necesitar ejecutarse desde `file://`, la conversión 
 mecánica y por archivo:
 
 1. Sustituir el envoltorio IIFE por `import` al inicio y `export` al final.
-2. En `index.html`, reemplazar las 27 etiquetas `<script>` por una sola:
+2. En `index.html`, reemplazar las 41 etiquetas `<script>` por una sola:
    `<script type="module" src="assets/js/main.js"></script>`.
 3. Servir por HTTP (`npx serve`, `python -m http.server`, o cualquier hosting
    estático).

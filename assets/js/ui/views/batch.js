@@ -16,6 +16,7 @@
   "use strict";
 
   const { LIFE_STAGES, PRODUCTS } = ORIGEN.core.catalog;
+  const { money } = ORIGEN.core.format;
 
   /** Intervalo de refresco de la barra simulada, en milisegundos. */
   const TICK_MS = 180;
@@ -31,7 +32,7 @@
    * @param {string} color Token CSS del relleno.
    * @param {number} total Denominador del porcentaje mostrado.
    */
-  function distRow(label, value, scale, color, total) {
+  function distRow(label, value, scale, color, total, amount) {
     const width = ((value / scale) * 100).toFixed(1);
     const pct = ((value / total) * 100).toFixed(0);
 
@@ -41,8 +42,9 @@
       '<div class="distrow__track">' +
       '<i class="distrow__fill" data-width="' + width + '%" style="background:' + color + '"></i>' +
       "</div>" +
-      '<div class="distrow__value">' + value + ' <span class="distrow__pct">' + pct + "%</span></div>" +
-      "</div>"
+      '<div class="distrow__value">' + value + ' <span class="distrow__pct">' + pct + "%</span>" +
+      (amount === undefined ? "" : '<br><span class="distrow__amount">' + amount + "</span>") +
+      "</div></div>"
     );
   }
 
@@ -55,6 +57,12 @@
     const total = dataset.all().length;
 
     const byVerdict = dataset.groupCount(function (d) { return d.verdict; });
+
+    // Monto colocable por determinación: convierte el reparto en cifra de negocio.
+    const amountByVerdict = {};
+    dataset.all().forEach(function (d) {
+      amountByVerdict[d.verdict] = (amountByVerdict[d.verdict] || 0) + (d.amount || 0);
+    });
 
     // El producto solo se cuenta sobre los viables: en una ruta de bienestar no
     // hay producto asignado y contarlo distorsionaría el reparto.
@@ -106,10 +114,14 @@
 
       '<div class="batchgrid">' +
       card("Determinación", "Distribución del lote",
-        distRow("Viable", byVerdict.viable || 0, total, "var(--ok)", total) +
-        distRow("Con condiciones", byVerdict.viable_condiciones || 0, total, "var(--warn)", total) +
-        distRow("Mejor momento", byVerdict.mejor_momento || 0, total, "var(--info)", total) +
-        distRow("Ruta de bienestar", byVerdict.no_viable || 0, total, "var(--risk)", total)) +
+        distRow("Viable", byVerdict.viable || 0, total, "var(--ok)", total,
+          money(amountByVerdict.viable || 0)) +
+        distRow("Con condiciones", byVerdict.viable_condiciones || 0, total, "var(--warn)", total,
+          money(amountByVerdict.viable_condiciones || 0)) +
+        distRow("Mejor momento", byVerdict.mejor_momento || 0, total, "var(--info)", total,
+          money(amountByVerdict.mejor_momento || 0)) +
+        distRow("Ruta de bienestar", byVerdict.no_viable || 0, total, "var(--risk)", total,
+          "$0")) +
       card("Producto asignado", "Sobre los viables", productRows) +
       card("Momento de vida detectado", "Clasificador", stageRows) +
       card("Categoría de afiliación", "A ≤2 SMMLV · B 2–4 · C >4", categoryRows) +

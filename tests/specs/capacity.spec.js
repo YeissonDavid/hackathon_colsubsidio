@@ -63,7 +63,7 @@
       });
     });
 
-    it("la compra de cartera sustituye la deuda externa en lugar de sumarse", function () {
+    it("el crédito de consumo sustituye la deuda externa en lugar de sumarse", function () {
       const substituting = ORIGEN.domain.dataset.build().filter(function (d) {
         return d.substitutes;
       });
@@ -71,7 +71,7 @@
       expect(substituting.length).toBeGreaterThanOrEqual(1);
 
       substituting.forEach(function (d) {
-        expect(d.product).toBe("cartera");
+        expect(d.product).toBe("consumo");
         // Si sustituye, la carga final debe descontar el pago externo.
         const naive = (d.committed + d.installment) / d.affiliate.income;
         expect(d.finalLoad).toBeLessThanOrEqual(
@@ -84,7 +84,7 @@
     it("María libera flujo mensual real al ordenar su deuda", function () {
       const maria = ORIGEN.domain.dataset.build()[0];
 
-      expect(maria.product).toBe("cartera");
+      expect(maria.product).toBe("consumo");
       expect(maria.substitutes).toBeTruthy();
       expect(maria.freedCashFlow).toBeGreaterThanOrEqual(
         1,

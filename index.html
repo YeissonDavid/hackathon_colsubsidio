@@ -28,6 +28,7 @@
     3 layout      armazón persistente: barra lateral, barra superior, contenido
     4 components  piezas reutilizables: botones, tarjetas, tablas, KPI
     5 views       anatomía de pantallas concretas: ficha, proyección, lote
+    6 advanced    vistas del motor avanzado: simulador, comparador, lab
 
     El orden importa: cada capa solo puede depender de las anteriores.
   -->
@@ -36,6 +37,7 @@
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/views.css">
+  <link rel="stylesheet" href="assets/css/advanced.css">
 </head>
 
 <body>
@@ -66,8 +68,21 @@
         <button class="navitem" type="button" data-view="fuentes">Fuentes y consentimiento</button>
       </nav>
 
+      <nav class="navsec" aria-label="Simuladores del motor avanzado">
+        <div class="navsec__label">Motor avanzado</div>
+        <button class="navitem" type="button" data-view="simulador">Simulador interactivo</button>
+        <button class="navitem" type="button" data-view="comparador">Comparador de perfiles</button>
+        <button class="navitem" type="button" data-view="laboratorio">Laboratorio de evidencia</button>
+      </nav>
+
+      <nav class="navsec" aria-label="Hackathon">
+        <div class="navsec__label">Hackathon</div>
+        <button class="navitem" type="button" data-view="reto">Cumplimiento del reto</button>
+        <button class="navitem" type="button" data-view="arquitectura">Arquitectura</button>
+      </nav>
+
       <div class="railfoot">
-        <div><span class="railfoot__dot"></span>Motor v5.0 · operativo</div>
+        <div><span class="railfoot__dot"></span>Motor v5.1 · base + avanzado</div>
         <div>Población sintética calibrada</div>
       </div>
     </aside>
@@ -160,6 +175,17 @@
   <script src="assets/js/domain/decision.js"></script>
   <script src="assets/js/domain/dataset.js"></script>
 
+  <!-- Motor avanzado: consulta individual con fuentes conmutables -->
+  <script src="assets/js/domain/advanced/hash.js"></script>
+  <script src="assets/js/domain/advanced/sources.js"></script>
+  <script src="assets/js/domain/advanced/profile.js"></script>
+  <script src="assets/js/domain/advanced/lifestage.js"></script>
+  <script src="assets/js/domain/advanced/policy.js"></script>
+  <script src="assets/js/domain/advanced/deliberation.js"></script>
+  <script src="assets/js/domain/advanced/delivery.js"></script>
+  <script src="assets/js/domain/advanced/engine.js"></script>
+  <script src="assets/js/domain/lab.js"></script>
+
   <!-- Presentación -->
   <script src="assets/js/ui/dom.js"></script>
   <script src="assets/js/ui/privacy.js"></script>
@@ -171,6 +197,11 @@
   <script src="assets/js/ui/views/batch.js"></script>
   <script src="assets/js/ui/views/portfolio.js"></script>
   <script src="assets/js/ui/views/sources.js"></script>
+  <script src="assets/js/ui/views/simulator.js"></script>
+  <script src="assets/js/ui/views/comparator.js"></script>
+  <script src="assets/js/ui/views/lab.js"></script>
+  <script src="assets/js/ui/views/challenge.js"></script>
+  <script src="assets/js/ui/views/architecture.js"></script>
   <script src="assets/js/ui/router.js"></script>
 
   <!-- Arranque -->
