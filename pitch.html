@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kepler - Credito Hiperpersonalizado - Colsubsidio</title>
+<meta name="description" content="Kepler: motor de inteligencia que transforma datos de afiliados en oportunidades de credito hiperpersonalizadas para Colsubsidio."/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--am:#ffd000;--az:#0067b1;--azd:#004e8a;--gr:#575756;--bg:#050c18;--bg2:#071324;--cb:rgba(255,255,255,0.035);--cbr:rgba(255,255,255,0.08);--r:18px;--tr:0.35s cubic-bezier(.4,0,.2,1);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:#fff;overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg2);}::-webkit-scrollbar-thumb{background:var(--am);border-radius:4px;}
+.container{max-width:1160px;margin:0 auto;padding:0 2rem;}
+.badge{display:inline-block;padding:.3rem .9rem;border-radius:999px;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;}
+.badge-y{background:var(--am);color:#0d0d0d;}
+.badge-g{background:rgba(255,208,0,.12);border:1px solid rgba(255,208,0,.35);color:var(--am);}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.18;pointer-events:none;z-index:0;animation:flt 14s ease-in-out infinite alternate;}
+.o1{width:700px;height:700px;background:var(--az);top:-200px;left:-200px;}
+.o2{width:500px;height:500px;background:var(--am);bottom:-150px;right:-100px;animation-delay:-5s;}
+.o3{width:350px;height:350px;background:var(--azd);top:40%;left:55%;animation-delay:-9s;}
+@keyframes flt{from{transform:translateY(0) scale(1);}to{transform:translateY(40px) scale(1.06);}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(5,12,24,.7);backdrop-filter:blur(18px);border-bottom:1px solid var(--cbr);}
+.nl{display:flex;align-items:center;gap:.75rem;}
+.nb{font-family:'Outfit',sans-serif;font-size:1.35rem;font-weight:700;}
+.nb span{color:var(--am);}
+.nv{display:flex;gap:2rem;list-style:none;}
+.nv a{color:rgba(255,255,255,.65);text-decoration:none;font-size:.88rem;font-weight:500;transition:color var(--tr);}
+.nv a:hover{color:var(--am);}
+.nc{padding:.5rem 1.3rem;border-radius:999px;background:var(--am);color:#0d0d0d;font-weight:700;font-size:.85rem;border:none;cursor:pointer;transition:transform var(--tr),box-shadow var(--tr);}
+.nc:hover{transform:scale(1.04);box-shadow:0 0 24px rgba(255,208,0,.45);}
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(3.2rem,8vw,7rem);font-weight:900;line-height:1;letter-spacing:-.02em;margin:1.5rem 0;}
+.wk{background:linear-gradient(135deg,var(--am) 0%,#ff9f00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.wb{color:var(--az);-webkit-text-fill-color:var(--az);}
+.hs{max-width:640px;font-size:1.15rem;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:2.8rem;}
+.hc{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.bp{padding:.85rem 2.2rem;background:var(--am);color:#0d0d0d;font-family:'Outfit',sans-serif;font-weight:700;font-size:1rem;border-radius:999px;border:none;cursor:pointer;transition:transform var(--tr),box-shadow var(--tr);}
+.bp:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(255,208,0,.4);}
+.bs{padding:.85rem 2.2rem;background:transparent;color:#fff;font-family:'Outfit',sans-serif;font-weight:600;font-size:1rem;border-radius:999px;border:1.5px solid rgba(255,255,255,.25);cursor:pointer;transition:background var(--tr),border-color var(--tr);}
+.bs:hover{background:rgba(255,255,255,.06);border-color:var(--am);}
+.hst{margin-top:4rem;display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;}
+.si{text-align:center;}
+.sn{font-family:'Outfit',sans-serif;font-size:2.6rem;font-weight:900;color:var(--am);line-height:1;}
+.sl{font-size:.8rem;color:rgba(255,255,255,.5);margin-top:.3rem;letter-spacing:.06em;text-transform:uppercase;}
+.sd{width:1px;background:var(--cbr);}
+section{position:relative;z-index:1;padding:7rem 0;}
+.sl2{font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--am);margin-bottom:.8rem;}
+.st{font-family:'Outfit',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;margin-bottom:1.2rem;}
+.ss{font-size:1.05rem;color:rgba(255,255,255,.6);line-height:1.7;max-width:580px;}
+#problem{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.5rem;}
+.pc{background:var(--cb);border:1px solid var(--cbr);border-radius:var(--r);padding:2.2rem;transition:transform var(--tr),border-color var(--tr),box-shadow var(--tr);position:relative;overflow:hidden;}
+.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--am),transparent);opacity:0;transition:opacity var(--tr);}
+.pc:hover{transform:translateY(-6px);border-color:rgba(255,208,0,.3);box-shadow:0 16px 48px rgba(0,0,0,.4);}
+.pc:hover::before{opacity:1;}
+.pc.bt::before{background:linear-gradient(90deg,transparent,var(--az),transparent);}
+.pc.bt:hover{border-color:rgba(0,103,177,.4);}
+.pi{font-size:2.4rem;margin-bottom:1.1rem;display:block;}
+.pc h3{font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:.8rem;}
+.pc ul{list-style:none;}
+.pc ul li{font-size:.93rem;color:rgba(255,255,255,.58);line-height:1.6;padding:.3rem 0 .3rem 1.3rem;position:relative;}
+.pc ul li::before{content:'\25B8';position:absolute;left:0;color:var(--am);}
+.pc.bt ul li::before{color:#5aafff;}
+#solution{background:var(--bg2);}
+.sf{margin-top:4rem;}
+.fs{display:grid;grid-template-columns:80px 1fr;gap:2rem;align-items:start;padding:2.2rem 0;border-bottom:1px solid var(--cbr);opacity:0;transform:translateX(-30px);transition:opacity .6s,transform .6s;}
+.fs.visible{opacity:1;transform:translateX(0);}
+.fs:last-child{border-bottom:none;}
+.fn{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--am),#ff9f00);color:#0d0d0d;font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:900;display:grid;place-items:center;box-shadow:0 0 30px rgba(255,208,0,.25);}
+.fc h3{font-family:'Outfit',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:.6rem;}
+.fc p{font-size:.95rem;color:rgba(255,255,255,.6);line-height:1.7;}
+.ft{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;}
+.ftg{padding:.3rem .8rem;border-radius:6px;font-size:.75rem;font-weight:600;background:rgba(0,103,177,.2);border:1px solid rgba(0,103,177,.4);color:#5aafff;}
+.ftg.y{background:rgba(255,208,0,.12);border-color:rgba(255,208,0,.3);color:var(--am);}
+#data{background:var(--bg);}
+.dg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;}
+.dc{background:var(--cb);border:1px solid var(--cbr);border-radius:var(--r);padding:2rem 1.8rem;transition:transform var(--tr),box-shadow var(--tr);text-align:center;}
+.dc:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,0,0,.35);}
+.dc .di{font-size:2.2rem;margin-bottom:1rem;display:block;}
+.dc h4{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem;}
+.dc p{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.6;}
+#business{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);}
+.bg{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3.5rem;align-items:center;}
+.bm{display:flex;flex-direction:column;gap:1.5rem;}
+.mr{display:flex;align-items:center;gap:1.2rem;background:var(--cb);border:1px solid var(--cbr);border-radius:14px;padding:1.4rem 1.6rem;transition:border-color var(--tr),transform var(--tr);}
+.mr:hover{border-color:rgba(255,208,0,.3);transform:translateX(6px);}
+.mi2{font-size:1.8rem;flex-shrink:0;}
+.min h4{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.2rem;}
+.min p{font-size:.85rem;color:rgba(255,255,255,.55);}
+.mv{margin-left:auto;font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:900;color:var(--am);}
+.bq{margin-top:2rem;background:rgba(0,103,177,.12);border-left:3px solid var(--az);border-radius:0 12px 12px 0;padding:1.2rem 1.6rem;font-size:.95rem;color:rgba(255,255,255,.7);line-height:1.7;font-style:italic;}
+#experience{background:var(--bg);}
+.eg{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3.5rem;}
+.ec{background:var(--cb);border:1px solid var(--cbr);border-radius:var(--r);padding:2.2rem;transition:transform var(--tr),box-shadow var(--tr);}
+.ec:hover{transform:translateY(-5px);box-shadow:0 14px 44px rgba(0,0,0,.3);}
+.ec .ei{font-size:2rem;margin-bottom:1rem;display:block;}
+.ec h3{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:.7rem;}
+.ec p{font-size:.9rem;color:rgba(255,255,255,.58);line-height:1.7;}
+.eh{grid-column:1/-1;background:linear-gradient(135deg,rgba(255,208,0,.08) 0%,rgba(0,103,177,.08) 100%);border:1px solid rgba(255,208,0,.2);border-radius:var(--r);padding:2.4rem;display:flex;align-items:center;gap:2rem;}
+.bn{font-family:'Outfit',sans-serif;font-size:5rem;font-weight:900;color:var(--am);line-height:1;flex-shrink:0;}
+.bt2 h3{font-family:'Outfit',sans-serif;font-size:1.35rem;font-weight:700;margin-bottom:.6rem;}
+.bt2 p{font-size:.95rem;color:rgba(255,255,255,.6);line-height:1.7;}
+#cta{background:linear-gradient(135deg,var(--bg2) 0%,#010915 100%);text-align:center;padding:8rem 2rem;}
+.ct{font-family:'Outfit',sans-serif;font-size:clamp(2.4rem,5vw,4.5rem);font-weight:900;line-height:1.1;margin-bottom:1.5rem;}
+.ct span{color:var(--am);}
+.cs{font-size:1.1rem;color:rgba(255,255,255,.55);max-width:560px;margin:0 auto 3rem;line-height:1.7;}
+.cr{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.tb{margin:4rem auto 0;max-width:700px;background:var(--cb);border:1px solid var(--cbr);border-radius:var(--r);padding:2rem 2.5rem;}
+.tb h4{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:1.5rem;text-align:left;}
+.ts{display:flex;}
+.tls{flex:1;text-align:center;position:relative;}
+.tls:not(:last-child)::after{content:'';position:absolute;top:16px;left:60%;width:80%;height:2px;background:linear-gradient(90deg,var(--am),var(--az));}
+.td{width:32px;height:32px;border-radius:50%;background:var(--am);color:#0d0d0d;font-weight:700;font-size:.8rem;display:grid;place-items:center;margin:0 auto .7rem;position:relative;z-index:1;}
+.tl{font-size:.78rem;color:rgba(255,255,255,.6);line-height:1.4;}
+.tw{font-size:.7rem;color:var(--am);font-weight:600;margin-top:.25rem;}
+footer{background:#020810;border-top:1px solid var(--cbr);padding:2.5rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.fb{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.1rem;}
+.fb span{color:var(--am);}
+.fc2{font-size:.8rem;color:rgba(255,255,255,.35);}
+.fl{height:28px;opacity:.55;filter:brightness(0) invert(1);}
+.fu{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+.fu.visible{opacity:1;transform:translateY(0);}
+#pc{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.35;}
+@media(max-width:768px){.pg,.dg,.eg,.bg{grid-template-columns:1fr;}.eh{flex-direction:column;text-align:center;}.hst{gap:1.5rem;}.sd{display:none;}nav .nv{display:none;}.ts{flex-direction:column;gap:1rem;}.tls::after{display:none;}}
+</style>
+</head>
+<body>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+<canvas id="pc"></canvas>
+<nav>
+<div class="nl">
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none"><polygon points="2,2 14,2 14,14 2,14" fill="#ffd000" opacity=".9"/><polygon points="14,2 26,2 14,14" fill="#ffd000"/><polygon points="14,14 26,2 26,26" fill="#0067b1" opacity=".85"/><polygon points="2,14 14,14 2,26" fill="#ffd000" opacity=".7"/><polygon points="2,26 14,14 14,34 2,34" fill="#ffd000" opacity=".55"/><polygon points="14,26 26,26 14,34" fill="#0067b1" opacity=".6"/></svg>
+<span class="nb"><span>Kepler</span></span>
+</div>
+<ul class="nv"><li><a href="#problem">Problema</a></li><li><a href="#solution">Solucion</a></li><li><a href="#data">Data</a></li><li><a href="#business">Negocio</a></li><li><a href="#experience">Afiliado</a></li></ul>
+<button class="nc" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Ver Demo</button>
+</nav>
+
+<section class="hero" id="hero">
+<div style="margin-bottom:1.5rem"><span class="badge badge-g">Colsubsidio · Hackathon 2026</span></div>
+<h1><span class="wk">Kepler</span><br>detecta lo que<br><span class="wb">el dato esconde.</span></h1>
+<p class="hs">El motor de inteligencia que convierte cada interaccion de afiliado en una oportunidad de credito hiperpersonalizada: validada, trazable y lista para actuar.</p>
+<div class="hc">
+<button class="bp" onclick="document.getElementById('problem').scrollIntoView({behavior:'smooth'})">Explorar el Pitch</button>
+<button class="bs" onclick="document.getElementById('solution').scrollIntoView({behavior:'smooth'})">Como funciona?</button>
+</div>
+<div class="hst">
+<div class="si"><div class="sn">1.5M+</div><div class="sl">Filas analizadas</div></div>
+<div class="sd"></div>
+<div class="si"><div class="sn">12</div><div class="sl">Clases de segmento</div></div>
+<div class="sd"></div>
+<div class="si"><div class="sn">5</div><div class="sl">Lineas de credito</div></div>
+<div class="sd"></div>
+<div class="si"><div class="sn">85-98%</div><div class="sl">Open rate WhatsApp</div></div>
+</div>
+</section>
+
+<section id="problem">
+<div class="container">
+<div class="fu"><p class="sl2">El Problema</p><h2 class="st">Millones de datos, cero personalizacion.<br>Todos pierden.</h2><p class="ss">Colsubsidio tiene los datos, los productos y los afiliados. Pero el abismo entre dato crudo y oferta relevante esta costando dinero y confianza.</p></div>
+<div class="pg">
+<div class="pc fu"><span class="pi">&#128100;</span><h3>Que hace dificil la vida del afiliado?</h3><ul><li>Recibe ofertas genericas que no reflejan su situacion real: familia, ingresos, momento de vida.</li><li>No sabe que credito aplica para el ni por que — el proceso se siente opaco.</li><li>Canales mal elegidos: push cuando ya desactivo notificaciones, email cuando prefiere WhatsApp.</li><li>Navegar el catalogo de 7 lineas sin guia genera abandono.</li><li>Bugs y fricciones digitales sin resolver destruyen la confianza antes de la solicitud.</li></ul></div>
+<div class="pc bt fu"><span class="pi">&#127963;</span><h3>Que hace dificil la vida de Colsubsidio?</h3><ul><li>Sin segmentacion robusta, las campanas disparan dinero en audiencias incorrectas.</li><li>Datos en silos: comportamiento, demografia y macro nunca se unifican.</li><li>Bugs de UX no detectados bloquean conversiones sin que el equipo lo sepa.</li><li>El canal se elige por heuristica, no por dato — costo por conversion alto.</li><li>Oportunidades de calendario (primas, regreso a clases) se pierden por falta de timing inteligente.</li></ul></div>
+</div>
+</div>
+</section>
+
+<section id="solution">
+<div class="container">
+<div class="fu"><p class="sl2">La Solucion</p><h2 class="st">Kepler: del bug al billete,<br>en tiempo real.</h2><p class="ss">Un scorer glass-box mas capa agentica que cierra el ciclo: detecta friccion, valida oportunidades y las traduce en dinero con razones trazables.</p></div>
+<div class="sf">
+<div class="fs fu"><div class="fn">1</div><div class="fc"><h3>Segmentacion con evidencia real</h3><p>MCA + LCA sobre 1,566,026 filas reales. K=12 clases elegidas por BIC/SABIC/entropia, no a ojo. Cada clase tiene perfil nombrado: edad, genero, ingreso, situacion familiar. Ninguna clase degenerada.</p><div class="ft"><span class="ftg y">1.5M+ afiliados</span><span class="ftg">K=12 clases</span><span class="ftg">BIC / SABIC / Entropia</span></div></div></div>
+<div class="fs fu"><div class="fn">2</div><div class="fc"><h3>Enriquecimiento exogeno: 4 senales</h3><p>Canal optimo (WhatsApp 85-98%), vector de interes real (Raddar/Gen Z Colombia), sensibilidad macro (DANE, BanRep 12%, inflacion 6.4%) y calendario de demanda (primas 30-jun/20-dic).</p><div class="ft"><span class="ftg">Canal optimo</span><span class="ftg">Vector de interes</span><span class="ftg">Macro DANE/BanRep</span><span class="ftg y">Calendario</span></div></div></div>
+<div class="fs fu"><div class="fn">3</div><div class="fc"><h3>Scorer glass-box: 1-3 productos con razones</h3><p>Modelo aditivo y trazable que arma por clase entre 1 y 3 productos elegibles (nunca forzado). Cada recomendacion tiene razones nombradas. Elegibilidad real de libranza (Ley 1527/2012).</p><div class="ft"><span class="ftg y">Glass-box trazable</span><span class="ftg">1-3 productos</span><span class="ftg">Ley 1527/2012</span></div></div></div>
+<div class="fs fu"><div class="fn">4</div><div class="fc"><h3>Capa agentica + validacion de bugs = CRO</h3><p>Agente LLM decide como comunicar la oferta segun momento y perfil. Kepler detecta bugs de UX automaticamente, los prioriza por impacto en conversion y los traduce en ingreso cuantificado. Del bug al billete.</p><div class="ft"><span class="ftg y">Agente LLM</span><span class="ftg">Bug al CRO</span><span class="ftg">Timing inteligente</span><span class="ftg">Impacto en $</span></div></div></div>
+</div>
+</div>
+</section>
+
+<section id="data">
+<div class="container">
+<div class="fu" style="text-align:center"><p class="sl2">Data Engine</p><h2 class="st">Recopilamos lo que importa.<br>Ignoramos el ruido.</h2><p class="ss" style="margin:0 auto">Kepler no adivina: aprende de senales reales externas e internas y las combina en un motor unificado de decision.</p></div>
+<div class="dg">
+<div class="dc fu"><span class="di">&#128100;</span><h4>Perfil del afiliado</h4><p>Edad, genero, situacion familiar, categoria de ingreso y clase de segmento construidos sobre datos reales.</p></div>
+<div class="dc fu"><span class="di">&#128241;</span><h4>Comportamiento digital</h4><p>Interacciones en app, web y canales. Deteccion de fricciones, tiempos de sesion y puntos de abandono.</p></div>
+<div class="dc fu"><span class="di">&#128027;</span><h4>Validacion de bugs</h4><p>Rastreo sistematico de errores en flujos criticos. Cada bug se mide en impacto de conversion perdida.</p></div>
+<div class="dc fu"><span class="di">&#127757;</span><h4>Contexto macro</h4><p>Tasa BanRep 12%, inflacion 6.4% (2026), gasto por NSE (DANE). El contexto economico ajusta en tiempo real.</p></div>
+<div class="dc fu"><span class="di">&#128197;</span><h4>Calendario de demanda</h4><p>Prima de servicios (30-jun/20-dic), vacaciones escolares, regreso a clases. Timing correcto, mayor conversion.</p></div>
+<div class="dc fu"><span class="di">&#128225;</span><h4>Canal optimo</h4><p>WhatsApp: 85-98%. Push: 20-40%. Email: 20-25%. Kepler elige el canal correcto por clase, no por default.</p></div>
+</div>
+</div>
+</section>
+
+<section id="business">
+<div class="container">
+<div class="bg">
+<div class="fu"><p class="sl2">Business Case</p><h2 class="st">Mas afiliados.<br>Mas credito.<br>Mas rapido.</h2><p class="ss">Cada mejora de UX detectada, cada canal optimizado y cada oferta hiperpersonalizada se traduce en una linea del P&amp;L de Colsubsidio.</p><blockquote class="bq">"Una mejora del 1% en tasa de conversion sobre 1.5M de afiliados equivale a miles de solicitudes nuevas por ciclo. Kepler lo hace sistematico."</blockquote></div>
+<div class="bm fu">
+<div class="mr"><div class="mi2">&#128200;</div><div class="min"><h4>Uplift en conversion</h4><p>Oferta relevante, canal correcto, momento exacto</p></div><div class="mv">CRO+</div></div>
+<div class="mr"><div class="mi2">&#128027;</div><div class="min"><h4>Bugs al Ingreso</h4><p>Cada error detectado se mide en $ recuperados</p></div><div class="mv">$ directo</div></div>
+<div class="mr"><div class="mi2">&#128241;</div><div class="min"><h4>Eficiencia de canal</h4><p>WhatsApp first: costo por conversion cae</p></div><div class="mv">85-98%</div></div>
+<div class="mr"><div class="mi2">&#9200;</div><div class="min"><h4>Timing de primas</h4><p>Activacion automatica en ventanas de alta demanda</p></div><div class="mv">2x pico</div></div>
+<div class="mr"><div class="mi2">&#128257;</div><div class="min"><h4>Retencion de afiliados</h4><p>Experiencia relevante reduce churn y aumenta LTV</p></div><div class="mv">LTV+</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="experience">
+<div class="container">
+<div class="fu"><p class="sl2">Experiencia del Afiliado</p><h2 class="st">La oferta correcta,<br>en el momento correcto,<br>por el canal correcto.</h2><p class="ss">Kepler elimina la friccion en cada punto del journey: desde el primer contacto hasta la firma del credito.</p></div>
+<div class="eg">
+<div class="eh"><div class="bn">12</div><div class="bt2"><h3>Segmentos con nombre y cara real</h3><p>Cada clase tiene un perfil humano: "Joven profesional con familia en formacion en estrato 3", "Pensionado mayor de 55 sin push habilitado", "Mujer independiente con ingreso variable". Kepler habla el idioma de cada uno.</p></div></div>
+<div class="ec fu"><span class="ei">&#128172;</span><h3>WhatsApp primero</h3><p>El canal con 85-98% de open rate es el default para casi todas las clases. Los pensionados quedan fuera del push: Kepler lo sabe y actua diferente.</p></div>
+<div class="ec fu"><span class="ei">&#129504;</span><h3>Razones visibles para el afiliado</h3><p>El scorer glass-box genera frases legibles: "Te recomendamos Libre Inversion porque tu ingreso fijo y tu familia de 4 lo hacen el producto mas eficiente para ti ahora."</p></div>
+<div class="ec fu"><span class="ei">&#128295;</span><h3>Cero fricciones digitales</h3><p>Kepler detecta bugs en el flujo de solicitud antes de que el afiliado los sufra. Cada bug corregido es una conversion recuperada: invisible para el usuario, visible en el P&amp;L.</p></div>
+<div class="ec fu"><span class="ei">&#127919;</span><h3>Solo productos para los que aplica</h3><p>Elegibilidad real de libranza (Ley 1527/2012). Nunca se muestra un credito que no puede tomar: reduce frustracion y fortalece la confianza.</p></div>
+</div>
+</div>
+</section>
+
+<section id="cta">
+<div class="container">
+<div class="fu">
+<span class="badge badge-y" style="margin-bottom:1.5rem;display:inline-block">Del dato al dinero. Hoy.</span>
+<h2 class="ct">Cada bug ignorado es<br><span>plata que se va.</span><br>Kepler lo detiene.</h2>
+<p class="cs">Segmentacion real. Data enriquecida. Scorer trazable. Agente que comunica. El sistema completo para convertir 1.5 millones de afiliados en crecimiento sostenible de cartera.</p>
+<div class="cr"><button class="bp">Solicitar Demo en Vivo</button><button class="bs">Ver Arquitectura</button></div>
+</div>
+<div class="tb fu"><h4>&#9201; Tiempo a produccion</h4>
+<div class="ts">
+<div class="tls"><div class="td">&#10003;</div><div class="tl">Segmentacion<br>1.5M filas</div><div class="tw">Hecho</div></div>
+<div class="tls"><div class="td">&#10003;</div><div class="tl">Scorer<br>glass-box</div><div class="tw">Hecho</div></div>
+<div class="tls"><div class="td" style="background:rgba(255,208,0,.5)">&#9680;</div><div class="tl">Capa agentica<br>+ timing</div><div class="tw">En curso</div></div>
+<div class="tls"><div class="td" style="background:#0067b1;color:#fff">&#8594;</div><div class="tl">Demo<br>Salesforce</div><div class="tw">Proximo</div></div>
+<div class="tls"><div class="td" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.4)">&#9702;</div><div class="tl">Produccion<br>completa</div><div class="tw">Q3 2026</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="fb"><span>Kepler</span> x Colsubsidio</div>
+<span class="fc2">Hackathon 2026 · Credito Hiperpersonalizado · Datos reales, impacto real.</span>
+<img src="Recursos Marca Colsubsidio/LogoV1.png" alt="Colsubsidio" class="fl"/>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')});},{threshold:.12});
+document.querySelectorAll('.fu,.fs').forEach(el=>obs.observe(el));
+(function(){
+const c=document.getElementById('pc'),ctx=c.getContext('2d');
+let p=[];const C=['#ffd000','#0067b1','#ffffff'];
+function r(){c.width=window.innerWidth;c.height=window.innerHeight;}
+window.addEventListener('resize',r);r();
+function mk(){return{x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.8+.4,vx:(Math.random()-.5)*.25,vy:-(Math.random()*.4+.1),color:C[Math.floor(Math.random()*C.length)],alpha:Math.random()*.6+.15,life:0,max:Math.random()*300+200};}
+for(let i=0;i<80;i++)p.push(mk());
+function draw(){
+ctx.clearRect(0,0,c.width,c.height);
+p.forEach((x,i)=>{x.x+=x.vx;x.y+=x.vy;x.life++;
+const pr=x.life/x.max,a=x.alpha*(1-Math.pow(pr*2-1,4));
+ctx.save();ctx.globalAlpha=a;ctx.beginPath();ctx.arc(x.x,x.y,x.r,0,Math.PI*2);ctx.fillStyle=x.color;ctx.fill();ctx.restore();
+if(x.life>=x.max||x.y<-10){p[i]=mk();p[i].y=c.height+10;}});
+requestAnimationFrame(draw);}
+draw();})();
+document.querySelectorAll('.pc,.dc,.ec').forEach((el,i)=>{el.style.transitionDelay=(i%3)*.1+'s';});
+</script>
+</body>
+</html>
